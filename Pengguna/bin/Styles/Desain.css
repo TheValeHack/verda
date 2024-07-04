@@ -86,6 +86,7 @@
     -fx-background-color: #ffffff;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1);
+    -fx-padding: 17px;
 }   
 
 .scroll {
