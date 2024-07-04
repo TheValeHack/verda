@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/Desain.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LowonganController">
+   <left>
+      <VBox prefHeight="525.0" prefWidth="82.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fill="WHITE" radius="19.0" stroke="BLACK" strokeType="INSIDE">
+               <VBox.margin>
+                  <Insets left="22.0" top="25.0" />
+               </VBox.margin>
+            </Circle>
+            <ImageView fx:id="profileImage" fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="22.0" top="-40.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Profil">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="26.0" top="1.0" />
+               </VBox.margin>
+            </Text>
+            <Line endX="-36.57817840576172" endY="0.8285026550292969" startX="-97.4710693359375" startY="0.8284988403320312" stroke="WHITE">
+               <VBox.margin>
+                  <Insets left="10.0" top="4.0" />
+               </VBox.margin>
+            </Line>
+            <ImageView fx:id="Beranda" fitHeight="31.0" fitWidth="28.0" onMouseClicked="#handleToBeranda" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20home.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="27.0" top="14.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Beranda">
+               <VBox.margin>
+                  <Insets left="19.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fitHeight="37.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20lowongan.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="24.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lowongan">
+               <VBox.margin>
+                  <Insets left="14.0" top="1.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fx:id="Pelatihan" fitHeight="37.0" fitWidth="35.0" onMouseClicked="#handleToPelatihan" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20pelatihan.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="24.0" top="6.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pelatihan">
+               <VBox.margin>
+                  <Insets left="17.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20komunitas.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="26.0" top="8.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Komunitas">
+               <VBox.margin>
+                  <Insets left="14.0" top="2.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20langganan.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="29.0" top="9.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Langganan">
+               <VBox.margin>
+                  <Insets left="13.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20logout.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="23.0" top="87.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="75.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20cari.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="185.0" right="16.0" top="17.0" />
+               </HBox.margin>
+            </ImageView>
+            <TextField fx:id="searchField" prefHeight="47.0" prefWidth="430.0" promptText="Recruitment Fresh Graduate" styleClass="kolom-Search">
+               <HBox.margin>
+                  <Insets left="-55.0" right="-611.0" top="8.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="1.0" left="38.0" />
+               </padding>
+            </TextField>
+            <ImageView fitHeight="59.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/Logo%20font.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20setting.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="668.0" top="18.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20pesan.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="-71.0" top="22.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Styles/Image/icon%20download.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="-75.0" top="15.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" styleClass="scroll" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="comboBox" layoutX="467.0" layoutY="18.0" prefHeight="27.0" prefWidth="177.0" promptText="Postingan terbaru" styleClass="Kolom-Input" />
+            <Text fill="#575757" layoutX="473.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Urutkan Berdasarkan" wrappingWidth="91.7919921875">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Button layoutX="367.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" styleClass="button-Filter" text="Filter" textFill="WHITE" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="49.0" layoutY="56.0" prefHeight="469.0" prefWidth="667.0" styleClass="scroll">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="837.0" prefWidth="670.0" styleClass="scroll">
+                     <children>
+                        <HBox fx:id="HboxLowongan" layoutY="271.0" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan" AnchorPane.bottomAnchor="310.6" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="271.20000000000005">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 12 jam yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="14.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 3.000.000,00 - Rp 5.000.000,00">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-18.0" top="134.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Diploma (D4)">
+                                 <HBox.margin>
+                                    <Insets left="-131.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="74.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/Logo%20perusahaan%202.jpeg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-154.0" top="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-103.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Regional coordinator">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-170.0" top="23.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-163.0" top="47.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="PT Sucafina Indonesia Coffee">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-80.0" top="50.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Aceh, Banda Aceh ">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-134.0" top="70.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HboxLowongan" layoutX="329.0" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 7 jam yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="16.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 9.000.000,00 - Rp 11.000.000,00">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-22.0" top="134.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Sarjana (S1)">
+                                 <HBox.margin>
+                                    <Insets left="-133.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="74.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/Logo%20perusahaan%201.jpeg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-141.0" top="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-97.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asisten Kepala Perkebunan Kelapa Sawit" wrappingWidth="172.599853515625">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-175.0" top="20.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-176.0" top="52.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-49.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="PT Wanapotensi Guna">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-89.0" top="55.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Palembang, Sumatera Selatan">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-105.0" top="73.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HboxLowongan" layoutX="329.0" layoutY="271.0" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 20 jam yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 12.000.000,00 ">
+                                 <HBox.margin>
+                                    <Insets left="-59.0" right="-22.0" top="134.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Sarjana (S1)">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="74.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/logo%20perusahaan%203.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-143.0" top="39.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-105.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agronomy Senior Assistant Manager" wrappingWidth="163.6317138671875">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-170.0" top="18.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-166.0" top="53.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-54.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="PT Evans Indonesia">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-84.0" top="55.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Kutai Timur, Kalimantan Timur">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-95.0" top="74.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HboxLowongan" layoutY="543.0" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 1 hari yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="13.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 7.500.000,00 - Rp 8.200.000,00">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-22.0" top="133.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Sarjana (S1)">
+                                 <HBox.margin>
+                                    <Insets left="-129.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="80.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/logo%20perusahaan%204.jpeg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-127.0" top="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-101.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cocoa Program Lead">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-181.0" top="27.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-144.0" top="47.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-45.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="Ofi Indonesia">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-94.0" top="50.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Lampung">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-69.0" top="70.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HboxLowongan" layoutX="330.0" layoutY="543.0" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 2 hari yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 12.000.000,00 - Rp 15.000.000,00">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-22.0" top="134.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Sarjana (S1)">
+                                 <HBox.margin>
+                                    <Insets left="-139.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="74.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/logo%20perusahaan%205.jpeg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-130.0" top="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-97.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agronomy Supervisor">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-173.0" top="21.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-170.0" top="42.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-55.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="PT. REA KALTIM PLANTATIONS">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-82.0" top="46.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Kembang Janggut, Kalimantan Timur">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-142.0" top="67.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HboxLowongan" prefHeight="256.0" prefWidth="314.0" styleClass="tabel-Lowongan">
+                           <children>
+                              <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="158.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20jam.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20pendidikan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="102.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="-21.0" top="130.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20gaji.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#717171" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposting 2 jam yang lalu">
+                                 <HBox.margin>
+                                    <Insets left="-35.0" right="-44.0" top="237.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="7.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Penuh waktu">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="161.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rp 5.000.000,00 - Rp 7.000.000,00">
+                                 <HBox.margin>
+                                    <Insets left="-59.0" right="-22.0" top="134.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minimal Diploma (D3-D4)">
+                                 <HBox.margin>
+                                    <Insets left="-129.0" top="107.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="74.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/logo%20perusahaan.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-154.0" top="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Line endX="201.8928680419922" endY="-6.213382244110107" startX="-100.0" startY="-6.21339225769043" stroke="#b1b1b1">
+                                 <HBox.margin>
+                                    <Insets left="-94.0" right="-16.0" top="230.0" />
+                                 </HBox.margin>
+                              </Line>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teknisi">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="-171.0" top="23.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Styles/Image/icon%20verifikasi.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-64.0" top="47.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="140.0" text="Lihat detail">
+                                 <HBox.margin>
+                                    <Insets left="-58.0" right="-1.0" top="193.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Text fill="#0f9ceb" strokeType="OUTSIDE" strokeWidth="0.0" text="PT Bumi Resources Tbk">
+                                 <HBox.margin>
+                                    <Insets left="-80.0" top="50.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kota Denpasar, Bali ">
+                                 <HBox.margin>
+                                    <Insets left="-110.0" top="70.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

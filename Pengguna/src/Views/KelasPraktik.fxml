@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="401.0" prefWidth="414.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.kelaspraktik.KelasPraktikController">
+    <children>
+        <TextField fx:id="namaLengkap" layoutX="100" layoutY="50" promptText="Nama lengkap" />
+        <TextField fx:id="idField" layoutX="100" layoutY="100" promptText="ID" />
+        <ComboBox fx:id="faseComboBox" layoutX="100" layoutY="150" promptText="Fase" />
+        <ComboBox fx:id="tumbuhanComboBox" layoutX="100" layoutY="200" promptText="Tumbuhan" />
+        <Button fx:id="uploadButton" layoutX="100" layoutY="250" text="Upload video" />
+        <Button fx:id="submitButton" layoutX="100" layoutY="300" text="Kirim" />
+    </children>
+</AnchorPane>

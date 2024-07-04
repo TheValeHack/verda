@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "Main.App",
+            "projectName": "Pengguna"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "Main.App",
+            "projectName": "Pengguna_5ec20619"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "Main.App",
+            "projectName": "Pengguna_5e4245d9",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "Main.App",
+            "projectName": "pengguna_verda",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-22.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
