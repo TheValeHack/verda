@@ -38,7 +38,7 @@ public class LowonganController {
             Text posisi = new Text(lowongan.getPosisi());
             Text perusahaan = new Text(lowongan.getPerusahaan());
             Text lokasi = new Text(lowongan.getLokasi());
-            Text gaji = new Text(lowongan.getGaji());
+            Text gaji = new Text(Integer.toString(lowongan.getGaji()));
             Text kualifikasi = new Text(lowongan.getKualifikasi());
             Text waktuDiposting = new Text(lowongan.getWaktuDiposting());
 
