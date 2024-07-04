@@ -36,7 +36,7 @@ public class MigrateManager {
 
     public static void migrateLowonganPengguna() throws SQLException {
         Connection connection = Config.getConnection();
-        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS lowongan_pengguna (id INT PRIMARY KEY AUTO_INCREMENT, idLowongan INT, idPengguna INT, status VARCHAR(255),namaLengkap VARCHAR(255), asalDaerah VARCHAR(255), pendidikanTerakhir VARCHAR(255), tentangSaya VARCHAR(3000), FOREIGN KEY (idLowongan) REFERENCES lowongan(id) ON DELETE CASCADE, FOREIGN KEY (idPengguna) REFERENCES pengguna(id) ON DELETE CASCADE)");
+        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS lowongan_pengguna (id INT PRIMARY KEY AUTO_INCREMENT, idLowongan INT, idPengguna INT, status VARCHAR(255),namaLengkap VARCHAR(255), asalDaerah VARCHAR(255), gender VARCHAR(255), pendidikanTerakhir VARCHAR(255), tentangSaya VARCHAR(3000), FOREIGN KEY (idLowongan) REFERENCES lowongan(id) ON DELETE CASCADE, FOREIGN KEY (idPengguna) REFERENCES pengguna(id) ON DELETE CASCADE)");
 
         System.out.println("Migrate Lowongan Pengguna berhasil");
         connection.close();
