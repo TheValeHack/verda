@@ -1,6 +1,10 @@
 package Models;
 
 
+import Service.repository.LowonganRepository;
+
+import java.sql.SQLException;
+
 public class Pengguna {
     private String  namaPengguna, nomorTelepon, jenisKelamin, tanggalLahir, profesi, provinsi, kota, email, password;
     private int id;
@@ -91,5 +95,9 @@ public class Pengguna {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean joinLowongan (int idLowongan, String status, String namaLengkap, String gender, String asalDaerah, String pendidikanTerakhir, String tentangSaya) throws SQLException {
+        return LowonganRepository.joinLowonganDB(idLowongan, this.id, status, namaLengkap, gender, asalDaerah, pendidikanTerakhir, tentangSaya);
     }
 }

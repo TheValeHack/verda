@@ -1,5 +1,9 @@
 package Models;
 
+import Service.repository.LowonganRepository;
+
+import java.util.ArrayList;
+
 public class Lowongan {
     private String posisi;
     private String perusahaan;
@@ -69,5 +73,9 @@ public class Lowongan {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static ArrayList<Lowongan> getAllLowongn(){
+        return LowonganRepository.getAllLowonganDB();
     }
 }
