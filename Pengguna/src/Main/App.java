@@ -14,15 +14,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-    	//AuthInterceptor.setPrimaryStage(primaryStage);
+    	AuthInterceptor.setPrimaryStage(primaryStage);
         App.primaryStage = primaryStage;
 
         showLowonganView();
-//        if (Session.getUser() == null) {
-//            showLoginView();
-//        } else {
-//            showBerandaView();
-//        };
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            showBerandaView();
+        };
     }
 
     public static void showLoginView() throws Exception {
@@ -55,15 +55,15 @@ public class App extends Application {
     }
 
     public static void showLowonganView() throws Exception {
-//        if (Session.getUser() == null) {
-//            showLoginView();
-//        } else {
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
             Parent lowonganView = FXMLLoader.load(App.class.getResource("/Views/Lowongan.fxml"));
             Scene lowonganScene = new Scene(lowonganView);
             primaryStage.setScene(lowonganScene);
             primaryStage.setTitle("Lowongan");
             primaryStage.show();
-        //}
+        }
     }
 
     public static void showPelatihanView() throws Exception {
