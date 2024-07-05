@@ -7,6 +7,18 @@ public class SeedManager {
         SeedPengguna.SeedPengguna();
         SeedLowongan.SeedLowongan();
         SeedLowonganPengguna.SeedLowonganPengguna();
+        SeedPelatihan.SeedPelatihan();
+        SeedPelatihanPengguna.SeedPelatihanPengguna();
+        SeedKelasBelajar.SeedKelasBelajar();
+        SeedKelasBelajarQuiz.SeedKelasBelajarQuiz();
+        SeedKelasBelajarVideo.SeedKelasBelajarVideo();
+        SeedPertanyaanQuiz.SeedPertanyaanQuiz();
+        SeedJawabanQuiz.SeedJawabanQuiz();
+        SeedJawabanPengguna.SeedJawabanPengguna();
+        SeedKelasOnline.SeedKelasOnline();
+        SeedKelasOnlinePengguna.SeedKelasOnlinePengguna();
+        SeedKelasPraktik.SeedKelasPraktik();
+        SeedKelasPraktikPengguna.SeedKelasPraktikPengguna();
     }
 
     public static void main(String[] args) throws SQLException {

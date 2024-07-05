@@ -20,7 +20,6 @@ public class Config {
     }
 
     public static Connection getConnection() throws SQLException {
-        System.out.println("Data terkoneksi");
         return DriverManager.getConnection(DB_URL, USER, PASS);
     }
 }
