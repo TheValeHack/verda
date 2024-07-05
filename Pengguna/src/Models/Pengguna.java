@@ -2,14 +2,16 @@ package Models;
 
 
 import Service.repository.LowonganRepository;
+import Service.repository.PelatihanRepository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Pengguna {
-    private String  namaPengguna, nomorTelepon, jenisKelamin, tanggalLahir, profesi, provinsi, kota, email, password;
+    private String  namaPengguna, nomorTelepon, jenisKelamin, tanggalLahir, profesi, provinsi, kota, email, password, langganan;
     private int id;
 
-    public Pengguna(String namaPengguna, String nomorTelepon, String jenisKelamin, String tanggalLahir, String profesi, String provinsi, String kota, String email, String password) {
+    public Pengguna(String namaPengguna, String nomorTelepon, String jenisKelamin, String tanggalLahir, String profesi, String provinsi, String kota, String email, String password, String langganan) {
         this.namaPengguna = namaPengguna;
         this.nomorTelepon = nomorTelepon;
         this.jenisKelamin = jenisKelamin;
@@ -19,6 +21,7 @@ public class Pengguna {
         this.kota = kota;
         this.email = email;
         this.password = password;
+        this.langganan = langganan;
     }
 
     public int getId() {
@@ -100,4 +103,11 @@ public class Pengguna {
     public boolean joinLowongan (int idLowongan, String status, String namaLengkap, String gender, String asalDaerah, String pendidikanTerakhir, String tentangSaya) throws SQLException {
         return LowonganRepository.joinLowonganDB(idLowongan, this.id, status, namaLengkap, gender, asalDaerah, pendidikanTerakhir, tentangSaya);
     }
+
+    public ArrayList<Pelatihan> getAllUserPelatihan(){
+        return PelatihanRepository.getAllPelatihanByUserIDDB(this.id);
+    }
+
+
+
 }

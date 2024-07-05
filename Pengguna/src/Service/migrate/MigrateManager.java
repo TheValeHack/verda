@@ -34,7 +34,7 @@ public class MigrateManager {
     public static void migratePengguna() throws SQLException {
         // Migrate Pengguna
         Connection connection = Config.getConnection();
-        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS pengguna (id INT PRIMARY KEY AUTO_INCREMENT, namaPengguna VARCHAR(255), nomorTelepon VARCHAR(255), jenisKelamin VARCHAR(255), tanggalLahir VARCHAR(255), profesi VARCHAR(255), provinsi VARCHAR(255), kota VARCHAR(255), email VARCHAR(255), password VARCHAR(255) ) ");
+        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS pengguna (id INT PRIMARY KEY AUTO_INCREMENT, namaPengguna VARCHAR(255), nomorTelepon VARCHAR(255), jenisKelamin VARCHAR(255), tanggalLahir VARCHAR(255), profesi VARCHAR(255), provinsi VARCHAR(255), kota VARCHAR(255), email VARCHAR(255), password VARCHAR(255), langganan VARCHAR(255) ) ");
         System.out.println("Migrate Pengguna berhasil");
         connection.close();
     }
