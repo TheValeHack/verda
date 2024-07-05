@@ -19,6 +19,8 @@ public class SeedManager {
         SeedKelasOnlinePengguna.SeedKelasOnlinePengguna();
         SeedKelasPraktik.SeedKelasPraktik();
         SeedKelasPraktikPengguna.SeedKelasPraktikPengguna();
+        SeedLangganan.SeedLangganan();
+        SeedLanggananPengguna.seedLanggananPengguna();
     }
 
     public static void main(String[] args) throws SQLException {

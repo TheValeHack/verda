@@ -1,6 +1,8 @@
 package Models;
 
 
+import Service.repository.KelasRepository;
+import Service.repository.LanggananRepository;
 import Service.repository.LowonganRepository;
 import Service.repository.PelatihanRepository;
 
@@ -108,6 +110,28 @@ public class Pengguna {
         return PelatihanRepository.getAllPelatihanByUserIDDB(this.id);
     }
 
+    public boolean joinPelatihan(int idPelatihan){
+        return PelatihanRepository.joinPelatihanDB(idPelatihan, this.id);
+    }
 
+    public boolean inputJawaban(int idJawaban){
+        return KelasRepository.inputJawaban(idJawaban, this.id);
+    }
+
+    public boolean joinKelasOnline(int idKelasOnline){
+        return KelasRepository.joinKelasOnline(idKelasOnline, this.id);
+    }
+
+    public boolean joinKelasPraktikum(int idKelas, String namaLengkap, String tumbuhan, String linkVideo, int fase){
+        return KelasRepository.joinKelasPraktikumDB(idKelas, this.id, namaLengkap, tumbuhan, linkVideo, fase);
+    }
+
+    public Langganan getLangganan(){
+        return LanggananRepository.getLanggananPengguna(this.id);
+    }
+
+    public boolean joinLangganan(int idLangganan){
+        return LanggananRepository.addLangganan(this.id, idLangganan);
+    }
 
 }

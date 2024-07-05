@@ -1,5 +1,7 @@
 package Models;
 
+import Service.repository.KelasRepository;
+
 public class KelasJawaban {
     private int id, idPertanyaan;
     private String jawaban;
@@ -42,5 +44,9 @@ public class KelasJawaban {
 
     public void setTrue(boolean aTrue) {
         isTrue = aTrue;
+    }
+
+    public boolean inputJawaban(int idPengguna){
+        return KelasRepository.inputJawaban(idPengguna, this.id);
     }
 }
