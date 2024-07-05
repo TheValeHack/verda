@@ -24,6 +24,8 @@ public class MigrateManager {
         migrateKelasOnlinePengguna();
         migrateKelasPraktik();
         migrateKelasPraktikPengguna();
+        migrateLangganan();
+        migrateLanggananPengguna();
     }
 
     public static void main(String[] args) throws SQLException {
@@ -34,7 +36,7 @@ public class MigrateManager {
     public static void migratePengguna() throws SQLException {
         // Migrate Pengguna
         Connection connection = Config.getConnection();
-        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS pengguna (id INT PRIMARY KEY AUTO_INCREMENT, namaPengguna VARCHAR(255), nomorTelepon VARCHAR(255), jenisKelamin VARCHAR(255), tanggalLahir VARCHAR(255), profesi VARCHAR(255), provinsi VARCHAR(255), kota VARCHAR(255), email VARCHAR(255), password VARCHAR(255), langganan VARCHAR(255) ) ");
+        connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS pengguna (id INT PRIMARY KEY AUTO_INCREMENT, namaPengguna VARCHAR(255), nomorTelepon VARCHAR(255), jenisKelamin VARCHAR(255), tanggalLahir VARCHAR(255), profesi VARCHAR(255), provinsi VARCHAR(255), kota VARCHAR(255), email VARCHAR(255), password VARCHAR(255)) ");
         System.out.println("Migrate Pengguna berhasil");
         connection.close();
     }
@@ -141,7 +143,7 @@ public class MigrateManager {
     public static void migrateKelasOnline(){
         try {
             Connection connection = Config.getConnection();
-            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS kelas_online (id INT PRIMARY KEY AUTO_INCREMENT, idPelatihan INT, judulSeminar VARCHAR(255), waktuTanggalSeminar VARCHAR(255), pengajar VARCHAR(255), link VARCHAR(255), FOREIGN KEY (idPelatihan) REFERENCES pelatihan(id) ON DELETE CASCADE)");
+            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS kelas_online (id INT PRIMARY KEY AUTO_INCREMENT, idPelatihan INT, judulSeminar VARCHAR(255), gambarSeminar VARCHAR(255),waktuTanggalSeminar VARCHAR(255), pengajar VARCHAR(255), link VARCHAR(255), FOREIGN KEY (idPelatihan) REFERENCES pelatihan(id) ON DELETE CASCADE)");
 
             System.out.println("Migrate Kelas Online berhasil");
             connection.close();
@@ -186,8 +188,34 @@ public class MigrateManager {
         }
     }
 
+    public static void migrateLangganan(){
+        try {
+            Connection connection = Config.getConnection();
+            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS langganan (id INT PRIMARY KEY AUTO_INCREMENT, jenisLangganan VARCHAR(255), durasiLangganan VARCHAR(255), benefitLangganan VARCHAR(1000), hargaLangganan INT)");
+
+            System.out.println("Migrate Langganan berhasil");
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void migrateLanggananPengguna(){
+        try {
+            Connection connection = Config.getConnection();
+            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS langganan_pengguna (id INT PRIMARY KEY AUTO_INCREMENT, idLangganan INT, idPengguna INT, sampaiDengan VARCHAR(255), FOREIGN KEY (idLangganan) REFERENCES langganan(id) ON DELETE CASCADE, FOREIGN KEY (idPengguna) REFERENCES pengguna(id) ON DELETE CASCADE)");
+
+            System.out.println("Migrate Langganan Pengguna berhasil");
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void dropAllTable() throws SQLException {
         Connection connection = Config.getConnection();
+        connection.createStatement().executeUpdate("DROP TABLE IF EXISTS langganan_pengguna");
+        connection.createStatement().executeUpdate("DROP TABLE IF EXISTS langganan");
         connection.createStatement().executeUpdate("DROP TABLE IF EXISTS lowongan_pengguna");
         connection.createStatement().executeUpdate("DROP TABLE IF EXISTS lowongan");
         connection.createStatement().executeUpdate("DROP TABLE IF EXISTS pelatihan_pengguna");

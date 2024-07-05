@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PelatihanRepository {
-    public static ArrayList<Pelatihan> getAllPelatihanDB(){
+    public static ArrayList<Pelatihan> getAllPelatihanDB() {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -27,7 +27,7 @@ public class PelatihanRepository {
         }
     }
 
-    public static ArrayList<Pelatihan> getAllPelatihanByUserIDDB(int userId){
+    public static ArrayList<Pelatihan> getAllPelatihanByUserIDDB(int userId) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -44,5 +44,23 @@ public class PelatihanRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static boolean joinPelatihanDB(int idPelatihan, int idPengguna) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna, status) VALUES ('" + idPelatihan + "', '" + idPengguna + "', 'pending')");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

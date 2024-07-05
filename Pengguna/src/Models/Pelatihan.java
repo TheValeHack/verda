@@ -42,4 +42,12 @@ public class Pelatihan {
     public ArrayList<KelasBelajar> getAllKelasBelajar(){
         return KelasRepository.getAllKelasBelajarByPelatihanDB(this.id);
     }
+
+    public ArrayList<KelasOnline> getAllKelasOnline(){
+        return KelasRepository.getAllKelasOnlineByIdPelatihan(this.id);
+    }
+
+    public boolean joinPelatihan(int userId){
+        return PelatihanRepository.joinPelatihanDB(this.id, userId);
+    }
 }

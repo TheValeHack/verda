@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class KelasRepository {
-    public static ArrayList<KelasBelajar> getAllKelasBelajarByPelatihanDB(int idPelatihan){
+    public static ArrayList<KelasBelajar> getAllKelasBelajarByPelatihanDB(int idPelatihan) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -29,7 +29,7 @@ public class KelasRepository {
         return null;
     }
 
-    public static ArrayList<KelasVideo> getVideosByIdKelas(int idKelas){
+    public static ArrayList<KelasVideo> getVideosByIdKelas(int idKelas) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -51,7 +51,7 @@ public class KelasRepository {
         }
     }
 
-    public static ArrayList<KelasQuiz> getQuizzesByIdKelas(int idKelas){
+    public static ArrayList<KelasQuiz> getQuizzesByIdKelas(int idKelas) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -72,7 +72,7 @@ public class KelasRepository {
         }
     }
 
-    public static ArrayList<KelasPertanyaan> getPertanyaanByIdQuiz(int idQuiz){
+    public static ArrayList<KelasPertanyaan> getPertanyaanByIdQuiz(int idQuiz) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -92,7 +92,7 @@ public class KelasRepository {
         }
     }
 
-    public static ArrayList<KelasJawaban> getJawabanByIdPertanyaan(int idPertanyaan){
+    public static ArrayList<KelasJawaban> getJawabanByIdPertanyaan(int idPertanyaan) {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -112,4 +112,82 @@ public class KelasRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static ArrayList<KelasOnline> getAllKelasOnlineByIdPelatihan(int idPelatihan) {
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            var result = statement.executeQuery("SELECT * FROM kelas_online WHERE idPelatihan = " + idPelatihan);
+            ArrayList<KelasOnline> kelasOnlineArrayList = new ArrayList<>();
+            while (result.next()) {
+                KelasOnline kelasOnline = new KelasOnline(
+                        result.getInt("id"),
+                        result.getInt("idPelatihan"),
+                        result.getString("judulSeminar"),
+                        result.getString("gambarSeminar"),
+                        result.getString("waktuTanggalSeminar"),
+                        result.getString("pengajar"),
+                        result.getString("link")
+                );
+                kelasOnlineArrayList.add(kelasOnline);
+            }
+            return kelasOnlineArrayList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean inputJawaban(int idPengguna, int idJawaban) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            connection.createStatement().executeUpdate("INSERT INTO jawaban_pengguna (idPengguna, idJawaban) VALUES ('" + idPengguna + "', '" + idJawaban + "')");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean joinKelasOnline(int idPelatihan, int idPengguna) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna, status) VALUES ('" + idPelatihan + "', '" + idPengguna + "', 'pending')");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public static boolean joinKelasPraktikumDB(int idKelas, int idPengguna, String namaLengkap, String tumbuhan, String linkVideo, int fase){
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            connection.createStatement().executeUpdate("INSERT INTO kelas_praktik_pengguna (idKelas, idPengguna, namaLengkap, tumbuhan, linkVideo, fase) VALUES ('" + idKelas + "', '" + idPengguna + "', '" + namaLengkap + "', '" + tumbuhan + "', '" + linkVideo + "', '" + fase + "')");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }
