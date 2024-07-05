@@ -1,5 +1,7 @@
 package Main;
 
+import Controller.LowonganDetailController;
+import Models.Lowongan;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -100,6 +102,17 @@ public class App extends Application {
             primaryStage.setTitle("Langganan");
             primaryStage.show();
         }
+    }
+    public static void showLowonganDetailView(Lowongan lowongan) throws Exception {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/LowonganDetail.fxml"));
+        Parent root = loader.load();
+        
+        LowonganDetailController controller = loader.getController();
+        controller.initData(lowongan);
+
+        primaryStage.setTitle("Detail Lowongan");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
