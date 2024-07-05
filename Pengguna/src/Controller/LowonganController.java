@@ -183,6 +183,7 @@ public class LowonganController {
         Button lihatDetailButton = new Button("Lihat detail");
         lihatDetailButton.setPrefHeight(26.0);
         lihatDetailButton.setPrefWidth(300.0);
+        lihatDetailButton.setOnAction(event -> handleLihatDetail(lowongan));
 
         Text waktuText = new Text(lowongan.getWaktuDiposting());
         waktuText.setFill(javafx.scene.paint.Color.web("#717171"));
@@ -231,6 +232,14 @@ public class LowonganController {
     private void handleToPelatihan(MouseEvent event) {
         try {
             App.showPelatihanView();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void handleLihatDetail(Lowongan lowongan) {
+        try {
+            App.showLowonganDetailView(lowongan);
         } catch (Exception e) {
             e.printStackTrace();
         }
