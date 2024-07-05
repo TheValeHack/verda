@@ -36,7 +36,7 @@ public class LowonganRepository {
             var result = connection.createStatement().executeQuery("SELECT * FROM lowongan");
             ArrayList<Lowongan> lowongans = new ArrayList<>();
             while (result.next()) {
-                Lowongan newLowongan = new Lowongan(result.getString("posisi"), result.getString("perusahaan"), result.getString("lokasi"), result.getInt("gaji"), result.getString("kualifikai"), result.getString("waktuDiposting"), result.getString("jenisWaktu"), result.getString("jobDesk"), result.getString("tanggungJawab"));
+                Lowongan newLowongan = new Lowongan(result.getString("posisi"), result.getString("perusahaan"), result.getString("lokasi"), result.getInt("gaji"), result.getString("kualifikasi"), result.getString("waktuDiposting"), result.getString("jenisWaktu"), result.getString("jobDesk"), result.getString("tanggungJawab"));
                 newLowongan.setId(result.getInt("id"));
                 lowongans.add(newLowongan);
             }

@@ -60,7 +60,7 @@
                         <Insets bottom="9.0" left="15.0" right="15.0" top="7.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Text fx:id="errorMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*Email tidak ditemukan" visible="false">
+                  <Text fx:id="errorMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*Email atau password salah!" visible="false">
                      <font>
                         <Font size="9.0" />
                      </font>
