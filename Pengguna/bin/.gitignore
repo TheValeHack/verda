@@ -1,7 +1,6 @@
-/Controller/
-/Main/
-/Views/
-/util/
-/Service/
-/Styles/
 /Models/
+/Service/
+/Controller/
+/Views/
+/Main/
+/Styles/
