@@ -51,15 +51,23 @@ public class LamaranPekerjaanController {
         String gender = genderCb.getValue();
         String pendidikan = pendidikanCb.getValue();
 
-        simpanButton.setOnAction(event -> handleSimpanLowongan(dataLowongan.getId(), "waiting", nama, gender, asalDaerah, pendidikan, tentang));
+        simpanButton.setOnAction(event -> handleSimpanLowongan());
 
     }
 	@FXML
     private void handleBackButtonClick(MouseEvent event) throws Exception {
         App.showLowonganDetailView(dataLowongan);
     }
-	private void handleSimpanLowongan(int idLowongan, String status, String namaLengkap, String gender, String asalDaerah, String pendidikanTerakhir, String tentangSaya) {
+	private void handleSimpanLowongan() {
+		int idLowongan = dataLowongan.getId();
+		String status = "waitiing";
+		String namaLengkap = namaTf.getText();
+        String asalDaerah = daerahTf.getText();
+        String tentangSaya = tentangTf.getText();
+        String gender = genderCb.getValue();
+        String pendidikanTerakhir = pendidikanCb.getValue();
 		try {
+			
 			boolean ajukanLowongan = Session.getUser().joinLowongan(idLowongan, status, namaLengkap, gender, asalDaerah, pendidikanTerakhir, tentangSaya);
 			if(ajukanLowongan) {
 				showAlertAndNavigate("Sukses", "Lowongan berhasil diajukan!");

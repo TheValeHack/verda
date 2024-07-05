@@ -44,7 +44,6 @@ public class LowonganDetailController {
         App.showLowonganView();
     }
     private void handleMelamar(Lowongan lowongan) {
-    	System.out.println("Tes");
         try {
             App.showLamaranPekerjaanView(lowongan);
         } catch (Exception e) {
