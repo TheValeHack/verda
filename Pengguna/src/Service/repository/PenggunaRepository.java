@@ -12,7 +12,7 @@ public class PenggunaRepository {
         try {
             var result = connection.createStatement().executeQuery("SELECT * FROM pengguna WHERE email = '" + email + "' AND password = '" + password + "'");
             if (result.next()) {
-                Pengguna newUser =  new Pengguna(result.getString("namaPengguna"), result.getString("nomorTelepon"), result.getString("jenisKelamin"), result.getString("tanggalLahir"), result.getString("profesi"), result.getString("provinsi"), result.getString("kota"), result.getString("email"), result.getString("password"), result.getString("langganan"));
+                Pengguna newUser =  new Pengguna(result.getString("namaPengguna"), result.getString("nomorTelepon"), result.getString("jenisKelamin"), result.getString("tanggalLahir"), result.getString("profesi"), result.getString("provinsi"), result.getString("kota"), result.getString("email"), result.getString("password"));
                 newUser.setId(result.getInt("id"));
                 return newUser;
             }

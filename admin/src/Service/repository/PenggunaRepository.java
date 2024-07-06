@@ -37,4 +37,24 @@ public class PenggunaRepository {
         }
         return false;
     }
+
+    public static Pengguna getSpecificPenggunaDB(int idPengguna) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            var result = connection.createStatement().executeQuery("SELECT * FROM pengguna WHERE id = " + idPengguna);
+            if (result.next()) {
+                Pengguna newUser = new Pengguna(result.getString("namaPengguna"), result.getString("nomorTelepon"), result.getString("jenisKelamin"), result.getString("tanggalLahir"), result.getString("profesi"), result.getString("provinsi"), result.getString("kota"), result.getString("email"), result.getString("password"), result.getString("langganan"));
+                newUser.setId(result.getInt("id"));
+                return newUser;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
