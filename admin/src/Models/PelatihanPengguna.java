@@ -2,6 +2,7 @@ package Models;
 
 import Service.repository.PelatihanPenggunaRepository;
 import Service.repository.PelatihanRepository;
+import Service.repository.PenggunaRepository;
 
 public class PelatihanPengguna {
     private int id, idPelatihan, idPengguna;
@@ -58,6 +59,10 @@ public class PelatihanPengguna {
 //    get infoPelatihan
     public Pelatihan getInfoPelatihan(){
         return PelatihanRepository.getSpecificPelatihanDB(this.idPelatihan);
+    }
+
+    public Pengguna getInfoPengguna(){
+        return PenggunaRepository.getSpecificPenggunaDB(this.idPengguna);
     }
 
     public boolean acceptStatus(){
