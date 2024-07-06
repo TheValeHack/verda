@@ -21,9 +21,4 @@ public class KomunitasController {
 
     }
 
-    @FXML
-    private void handleToLowongan(MouseEvent event) {
-
-    }
-
 }

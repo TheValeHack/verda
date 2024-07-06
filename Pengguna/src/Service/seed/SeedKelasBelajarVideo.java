@@ -10,8 +10,8 @@ public class SeedKelasBelajarVideo {
         try {
             Connection connection = Config.getConnection();
             truncateKelasBelajarVideo();
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Wortel', 1, 'path-to-wortel-cuy.jpg')");
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Tomat', 2, 'path-to-tomat-cuy.jpg')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Wortel', 1, '/videos/materi1_program1.mp4')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Tomat', 3, '/videos/materi2_program1.mp4')");
 
             System.out.println("Seed Kelas Belajar Video berhasil");
             connection.close();
