@@ -26,7 +26,7 @@ public class Data {
 
     public static Connection getConnection() throws SQLException {
         System.out.println("Database connected");
-        return DriverManager.getConnection(DB_URL, USER, PASS);
+        return DriverManager. getConnection(DB_URL, USER, PASS);
     }
 
     public static List<CobaModel> getUsers() {
