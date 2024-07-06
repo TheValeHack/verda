@@ -7,7 +7,9 @@ import java.util.List;
 
 import Main.App;
 import Models.KelasBelajar;
+import Models.Langganan;
 import Models.Pelatihan;
+import Models.Pengguna;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -45,14 +47,33 @@ public class PelatihanController {
 
     @FXML
     public void initialize() {
+    	Pengguna currentUser = Session.getUser();
+    	
     	LocalDate currentDatePlusThreeMonths = LocalDate.now().plusMonths(3);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MMMM yyyy");
         
-    	langgananNamaText.setText(Session.getUser().getNamaPengguna());
-    	langgananIdText.setText(Integer.toString(Session.getUser().getId()));
+    	langgananNamaText.setText(currentUser.getNamaPengguna());
+    	langgananIdText.setText(Integer.toString(currentUser.getId()));
     	langgananWaktuText.setText(currentDatePlusThreeMonths.format(formatter));
     	
-        pelatihanUser = Session.getUser().getAllUserPelatihan();
+    	Langganan userLangganan = currentUser.getLangganan();
+    	
+    	if(userLangganan == null) {
+    		langgananBox.setVisible(false);
+    		langgananBox.setManaged(false);
+    	} else {
+    		langgananBox.setVisible(true);
+    		langgananBox.setManaged(true);
+    		if (userLangganan.getJenisLangganan().equals("Economy")) {
+    	        langgananBox.getStyleClass().add("economy-gradient");
+    	        langgananWaktuText.setStyle("-fx-fill: #000000;");
+    	    } else {
+    	        langgananBox.getStyleClass().add("premium-gradient");
+    	        langgananWaktuText.setStyle("-fx-fill: #fcc21b;");
+    	    }
+    	}
+    	
+        pelatihanUser = currentUser.getAllUserPelatihan();
 
         if (pelatihanUser != null && !pelatihanUser.isEmpty()) {
             kelasBelajar = pelatihanUser.get(0).getAllKelasBelajar();

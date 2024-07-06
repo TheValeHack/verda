@@ -103,3 +103,9 @@
     -fx-background-color: #ffffff;
     -fx-background-radius: 35;
 }
+.economy-gradient {
+    -fx-background-color: linear-gradient(to right, #FFFFFF, #FFD983);
+}
+.premium-gradient {
+    -fx-background-color:  linear-gradient(to right, #FFFFFF, #737373);
+}

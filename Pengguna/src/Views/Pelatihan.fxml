@@ -134,7 +134,7 @@
             <Insets left="20.0" />
          </padding>
          <children>
-            <VBox fx:id="langgananBox" alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="469.0" style="-fx-background-color: linear-gradient(to right, #FFFFFF, #737373); -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-width: 1; -fx-border-color: #000000;">
+            <VBox fx:id="langgananBox" alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="469.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-width: 1; -fx-border-color: #000000;">
                <children>
                   <Text fx:id="langgananNamaText" strokeType="OUTSIDE" strokeWidth="0.0" text="RAIHAN FADHLURRAHMAN">
                      <font>

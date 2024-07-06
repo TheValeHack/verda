@@ -9,12 +9,15 @@ import Main.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
+import util.Session;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import Models.KelasBelajar;
 import Models.KelasQuiz;
 import Models.KelasVideo;
+import Models.Langganan;
+import Models.Pengguna;
 
 public class KelasBelajarController {
 
@@ -29,6 +32,8 @@ public class KelasBelajarController {
     	this.kelasBelajar = kelasBelajar;
         kelasMateri = kelasBelajar.getVideos();
         kelasQuiz = kelasBelajar.getQuizzes();
+        Pengguna currentUser = Session.getUser();
+    	Langganan userLangganan = currentUser.getLangganan();
 
         ArrayList<Object> combinedList = new ArrayList<>();
         combinedList.addAll(kelasMateri);
@@ -57,7 +62,15 @@ public class KelasBelajarController {
                     hbox = loader.load();
                     MateriItemController controller = loader.getController();
                     controller.setData((KelasVideo) item);
-                    hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
+                    
+                    int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
+                    if(userLangganan == null) {
+                    	if(order < 2) {
+                    		hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
+                    	}
+                    } else {
+                    	hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
+                    }
                 } else {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/KuisItem.fxml"));
                     hbox = loader.load();
@@ -66,11 +79,13 @@ public class KelasBelajarController {
                 }
                 
                 int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
-                if (order > 1) {
-                    Pane overlay = new Pane();
-                    overlay.getStyleClass().add("overlay");
-                    hbox.getChildren().add(overlay);
-                    hbox.getStyleClass().add("disable-click");
+                if(userLangganan == null) {
+                	if (order > 1) {
+                        Pane overlay = new Pane();
+                        overlay.getStyleClass().add("overlay");
+                        hbox.getChildren().add(overlay);
+                        hbox.getStyleClass().add("disable-click");
+                    }
                 }
                 
                 vboxdaftarmateri.getChildren().add(hbox);
