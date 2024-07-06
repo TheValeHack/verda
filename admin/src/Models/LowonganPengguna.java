@@ -94,4 +94,12 @@ public class LowonganPengguna {
     public Lowongan getSpesificLowongan(){
         return LowonganRepository.getSpecificLowonganDB(this.idLowongan);
     }
+
+    public boolean acceptStatus(){
+        return LowonganRepository.acceptStatusDB(this.id);
+    }
+
+    public boolean rejectStatus(){
+        return LowonganRepository.rejectStatusDB(this.id);
+    }
 }

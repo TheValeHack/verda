@@ -91,4 +91,28 @@ public class LowonganRepository {
         }
         return null;
     }
+
+    public static boolean acceptStatusDB(int idLowonganPengguna){
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            statement.executeUpdate("UPDATE lowongan_pengguna SET status = 'accepted' WHERE id = " + idLowonganPengguna);
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean rejectStatusDB(int idLowonganPengguna){
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            statement.executeUpdate("UPDATE lowongan_pengguna SET status = 'rejected' WHERE id = " + idLowonganPengguna);
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
