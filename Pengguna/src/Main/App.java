@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import Controller.KelasBelajarController;
 import Controller.LamaranPekerjaanController;
 import Controller.LowonganDetailController;
+import Controller.PlayVideoController;
 import Models.KelasBelajar;
+import Models.KelasVideo;
 import Models.Lowongan;
 import Models.Pelatihan;
 import javafx.application.Application;
@@ -166,6 +168,19 @@ public class App extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+    public static void showPlayVideoView(KelasBelajar kelasBelajar, KelasVideo kelasVideo) throws Exception {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayVideo.fxml"));
+        Parent root = loader.load();
+        
+        PlayVideoController controller = loader.getController();
+        controller.initData(kelasBelajar, kelasVideo);
+        
+
+        primaryStage.setTitle("KelasBelajar");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
 
     public static void main(String[] args) {
         launch(args);

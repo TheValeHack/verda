@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import Models.KelasBelajar;
 import Models.KelasQuiz;
 import Models.KelasVideo;
@@ -20,10 +21,12 @@ public class KelasBelajarController {
     @FXML
     private VBox vboxdaftarmateri;
 
+    private KelasBelajar kelasBelajar;
     private ArrayList<KelasVideo> kelasMateri;
     private ArrayList<KelasQuiz> kelasQuiz;
 
     public void initData(KelasBelajar kelasBelajar) {
+    	this.kelasBelajar = kelasBelajar;
         kelasMateri = kelasBelajar.getVideos();
         kelasQuiz = kelasBelajar.getQuizzes();
 
@@ -54,12 +57,22 @@ public class KelasBelajarController {
                     hbox = loader.load();
                     MateriItemController controller = loader.getController();
                     controller.setData((KelasVideo) item);
+                    hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
                 } else {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/KuisItem.fxml"));
                     hbox = loader.load();
                     KuisItemController controller = loader.getController();
                     controller.setData((KelasQuiz) item);
                 }
+                
+                int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
+                if (order > 1) {
+                    Pane overlay = new Pane();
+                    overlay.getStyleClass().add("overlay");
+                    hbox.getChildren().add(overlay);
+                    hbox.getStyleClass().add("disable-click");
+                }
+                
                 vboxdaftarmateri.getChildren().add(hbox);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -69,5 +82,13 @@ public class KelasBelajarController {
     @FXML
     private void handleBackButtonClick(MouseEvent event) throws Exception {
         App.showPelatihanView();
+    }
+    private void handleOpenVideo(KelasVideo video) {
+    	try {
+			App.showPlayVideoView(kelasBelajar, video);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

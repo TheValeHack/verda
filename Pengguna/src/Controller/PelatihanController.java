@@ -91,7 +91,7 @@ public class PelatihanController {
         vboxMateri.setAlignment(Pos.TOP_LEFT);
 
         for (KelasBelajar kelas : kelasList) {
-            if (kelasCount % 6 == 0) {
+            if (kelasCount % 7 == 0) {
                 row = new HBox(20);
                 VBox.setMargin(row, new Insets(0, 0, 10, 0));
                 vboxMateri.getChildren().add(row);
