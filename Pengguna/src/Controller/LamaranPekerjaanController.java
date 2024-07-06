@@ -43,13 +43,6 @@ public class LamaranPekerjaanController {
     public void initialize() {
         genderCb.getItems().addAll("Laki-laki", "Perempuan");
         pendidikanCb.getItems().addAll("SMA", "D3", "D4/S1");
-        
-        
-        String nama = namaTf.getText();
-        String asalDaerah = daerahTf.getText();
-        String tentang = tentangTf.getText();
-        String gender = genderCb.getValue();
-        String pendidikan = pendidikanCb.getValue();
 
         simpanButton.setOnAction(event -> handleSimpanLowongan());
 

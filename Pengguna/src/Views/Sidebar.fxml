@@ -35,7 +35,7 @@
                 <Insets left="10.0" top="4.0" />
             </VBox.margin>
         </Line>
-        <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true"  onMouseClicked="#handleToBeranda" preserveRatio="true">
             <image>
                 <Image url="@../Styles/Image/icon%20home.png" />
             </image>

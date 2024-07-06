@@ -1,8 +1,13 @@
 package Main;
 
+import java.util.ArrayList;
+
+import Controller.KelasBelajarController;
 import Controller.LamaranPekerjaanController;
 import Controller.LowonganDetailController;
+import Models.KelasBelajar;
 import Models.Lowongan;
+import Models.Pelatihan;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +25,7 @@ public class App extends Application {
     	AuthInterceptor.setPrimaryStage(primaryStage);
         App.primaryStage = primaryStage;
 
-        showLowonganView();
+        showPelatihanView();
         if (Session.getUser() == null) {
             showLoginView();
         } else {
@@ -73,13 +78,34 @@ public class App extends Application {
         if (Session.getUser() == null) {
             showLoginView();
         } else {
-            Parent pelatihanView = FXMLLoader.load(App.class.getResource("/Views/Pelatihan.fxml"));
-            Scene pelatihanScene = new Scene(pelatihanView);
-            primaryStage.setScene(pelatihanScene);
-            primaryStage.setTitle("Pelatihan");
-            primaryStage.show();
+            ArrayList<Pelatihan> pelatihanUser = Session.getUser().getAllUserPelatihan();
+            if(pelatihanUser.size() > 0) {
+            	Parent pelatihanView = FXMLLoader.load(App.class.getResource("/Views/Pelatihan.fxml"));
+                Scene pelatihanScene = new Scene(pelatihanView);
+                primaryStage.setScene(pelatihanScene);
+                primaryStage.setTitle("Pelatihan");
+                primaryStage.show();
+            } else {
+            	Parent pelatihanView = FXMLLoader.load(App.class.getResource("/Views/PelatihanKosong.fxml"));
+                Scene pelatihanScene = new Scene(pelatihanView);
+                primaryStage.setScene(pelatihanScene);
+                primaryStage.setTitle("Pelatihan");
+                primaryStage.show();
+            }
+            
         }
     }
+    public static void showDaftarPelatihanView() throws Exception {
+      if (Session.getUser() == null) {
+          showLoginView();
+      } else {
+          Parent pelatihanView = FXMLLoader.load(App.class.getResource("/Views/DaftarPelatihan.fxml"));
+          Scene pelatihanScene = new Scene(pelatihanView);
+          primaryStage.setScene(pelatihanScene);
+          primaryStage.setTitle("Daftar Pelatihan");
+          primaryStage.show();
+      }
+  }
 
     public static void showKomunitasView() throws Exception {
         if (Session.getUser() == null) {
@@ -124,6 +150,19 @@ public class App extends Application {
         
 
         primaryStage.setTitle("Lamaran Pekerjaan");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    
+    public static void showKelasBelajarView(KelasBelajar kelasBelajar) throws Exception {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/KelasBelajar.fxml"));
+        Parent root = loader.load();
+        
+        KelasBelajarController controller = loader.getController();
+        controller.initData(kelasBelajar);
+        
+
+        primaryStage.setTitle("KelasBelajar");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

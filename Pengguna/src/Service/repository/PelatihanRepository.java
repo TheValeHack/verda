@@ -31,7 +31,7 @@ public class PelatihanRepository {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
-            var result = statement.executeQuery("SELECT * FROM pelatihan WHERE id IN (SELECT idPelatihan FROM pelatihan_pengguna WHERE idPengguna = " + userId + " AND status = 'accepted')");
+            var result = statement.executeQuery("SELECT * FROM pelatihan WHERE id IN (SELECT idPelatihan FROM pelatihan_pengguna WHERE idPengguna = " + userId + ")");
             ArrayList<Pelatihan> pelatihanArrayList = new ArrayList<>();
             while (result.next()) {
                 Pelatihan pelatihan = new Pelatihan(

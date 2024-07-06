@@ -64,40 +64,4 @@ public class BerandaController {
         // Logika pencarian di sini
         System.out.println("Mencari: " + searchQuery);
     }
-
-    @FXML
-    private void handleToLowongan(MouseEvent event) {
-        try {
-            App.showLowonganView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void handleToPelatihan(MouseEvent event) {
-        try {
-            App.showPelatihanView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void handleToKomunitas(MouseEvent event) {
-        try {
-            App.showKomunitasView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void handleToLangganan(MouseEvent event) {
-        try {
-            App.showLanggananView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

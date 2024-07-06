@@ -23,10 +23,11 @@ public class KelasRepository {
                 );
                 kelasBelajarArrayList.add(kelasBelajar);
             }
+            return kelasBelajarArrayList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+//        return null;
     }
 
     public static ArrayList<KelasVideo> getVideosByIdKelas(int idKelas) {
@@ -41,7 +42,7 @@ public class KelasRepository {
                         result.getInt("idKelas"),
                         result.getInt("orderVideo"),
                         result.getString("judulVideo"),
-                        result.getString("videoURL")
+                        result.getString("linkVideo")
                 );
                 kelasVideoArrayList.add(kelasVideo);
             }

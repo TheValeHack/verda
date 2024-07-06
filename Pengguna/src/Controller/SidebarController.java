@@ -20,6 +20,15 @@ public class SidebarController {
     }
 
     @FXML
+    private void handleToBeranda(MouseEvent event) {
+        try {
+            App.showBerandaView();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
     private void handleToLowongan(MouseEvent event) {
         try {
             App.showLowonganView();

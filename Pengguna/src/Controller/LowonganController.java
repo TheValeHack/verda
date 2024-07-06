@@ -218,24 +218,6 @@ public class LowonganController {
                 .collect(Collectors.toList());
         displayLowongan(filteredList);
     }
-
-    @FXML
-    private void handleToBeranda(MouseEvent event) {
-        try {
-            App.showBerandaView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void handleToPelatihan(MouseEvent event) {
-        try {
-            App.showPelatihanView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     
     private void handleLihatDetail(Lowongan lowongan) {
         try {
