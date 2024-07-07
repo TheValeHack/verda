@@ -97,14 +97,14 @@ public class KelasRepository {
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
-            var result = statement.executeQuery("SELECT * FROM jawaban_pertanyaan WHERE idPertanyaan = " + idPertanyaan);
+            var result = statement.executeQuery("SELECT * FROM jawaban_quiz WHERE idPertanyaan = " + idPertanyaan);
             ArrayList<KelasJawaban> kelasJawabanArrayList = new ArrayList<>();
             while (result.next()) {
                 KelasJawaban kelasJawaban = new KelasJawaban(
                         result.getInt("id"),
                         result.getInt("idPertanyaan"),
                         result.getString("jawaban"),
-                        result.getBoolean("isBenar")
+                        result.getBoolean("isTrue")
                 );
                 kelasJawabanArrayList.add(kelasJawaban);
             }
