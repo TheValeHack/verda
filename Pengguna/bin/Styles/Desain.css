@@ -109,3 +109,45 @@
 .premium-gradient {
     -fx-background-color:  linear-gradient(to right, #FFFFFF, #737373);
 }
+
+.quizBox {
+    -fx-padding: 30;
+}
+.questionNumber {
+    -fx-font-size: 12px;
+}
+.questionText {
+    -fx-font-size: 21px;
+    -fx-wrap-text: true;
+    -fx-pref-width: 535px;
+    -fx-max-width: 535px;
+}
+.answerButton {
+    -fx-font-size: 16px;
+}
+.previousButton {
+    -fx-background-color: #848484;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-padding: 7px 20px;
+    -fx-font-size: 14px; 
+    -fx-font-weight: bold;
+}
+.nextButton {
+    -fx-background-color: #03CBB3;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-padding: 7px 20px;
+    -fx-font-size: 14px; 
+    -fx-font-weight: bold;
+}
+.scoreHeadText {
+    -fx-font-size: 14px;
+}
+.scoreText {
+    -fx-font-size: 70px;
+    -fx-font-weight: bold;
+}
+.scoreValue {
+    -fx-font-size: 16px;
+}

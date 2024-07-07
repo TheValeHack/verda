@@ -76,6 +76,14 @@ public class KelasBelajarController {
                     hbox = loader.load();
                     KuisItemController controller = loader.getController();
                     controller.setData((KelasQuiz) item);
+                    int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
+                    if(userLangganan == null) {
+                    	if(order < 2) {
+                    		hbox.setOnMouseClicked(event -> handleOpenQuiz((KelasQuiz) item));
+                    	}
+                    } else {
+                    	hbox.setOnMouseClicked(event -> handleOpenQuiz((KelasQuiz) item));
+                    }
                 }
                 
                 int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
@@ -101,6 +109,14 @@ public class KelasBelajarController {
     private void handleOpenVideo(KelasVideo video) {
     	try {
 			App.showPlayVideoView(kelasBelajar, video);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    private void handleOpenQuiz(KelasQuiz quiz) {
+    	try {
+			App.showPlayQuizView(kelasBelajar, quiz);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
