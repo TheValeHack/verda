@@ -4,36 +4,48 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Komunitas {
-    private StringProperty name = new SimpleStringProperty(this, "name");
-    private StringProperty imageUrl = new SimpleStringProperty(this, "imageUrl");
+    private String nama,kategori,visibility;
+    private int id;
 
-    public Komunitas(String name, String imageUrl) {
-        this.name.set(name);
-        this.imageUrl.set(imageUrl);
+    public Komunitas(int id, String nama, String kategori, String visibility) {
+        this.id = id;
+        this.nama = nama;
+        this.kategori = kategori;
+        this.visibility = visibility;
     }
 
-    public String getName() {
-        return name.get();
+    public String getNama() {
+        return nama;
     }
 
-    public void setName(String name) {
-        this.name.set(name);
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public StringProperty nameProperty() {
-        return name;
+    public String getKategori() {
+        return kategori;
     }
 
-    public String getImageUrl() {
-        return imageUrl.get();
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl.set(imageUrl);
+    public String getVisibility() {
+        return visibility;
     }
 
-    public StringProperty imageUrlProperty() {
-        return imageUrl;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }
 
