@@ -74,4 +74,16 @@ public class PelatihanPenggunaRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static boolean deletePelatihanPengguna(int idPelatihan, int idPengguna) {
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM pelatihan_pengguna WHERE idPelatihan = " + idPelatihan + " AND idPengguna = " + idPengguna);
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

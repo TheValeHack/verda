@@ -1,5 +1,6 @@
 package Models;
 
+import Service.repository.LanggananPenggunaRepository;
 import Service.repository.LanggananRepository;
 
 public class Langganan {
@@ -55,6 +56,10 @@ public class Langganan {
     }
 
     public boolean joinLangganan (int idPengguna){
-        return LanggananRepository.addLangganan(idPengguna, this.id);
+        return LanggananPenggunaRepository.addLangganan(idPengguna, this.id);
+    }
+
+    public boolean cancelLangganan (int idPengguna){
+        return LanggananPenggunaRepository.deleteLangganan(idPengguna, this.id);
     }
 }

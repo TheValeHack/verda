@@ -78,4 +78,8 @@ public class Lowongan {
     public static ArrayList<Lowongan> getAllLowongn(){
         return LowonganRepository.getAllLowonganDB();
     }
+
+    public boolean deleteLowongan(){
+        return LowonganRepository.deleteLowongan(this.id);
+    }
 }
