@@ -115,4 +115,36 @@ public class LowonganRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static boolean addLowongan(String posisi, String perusahaan, String lokasi, int gaji, String kualifikasi, String waktuDiposting, String jenisWaktu, String jobDesk, String tanggungJawab) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            connection.createStatement().executeUpdate("INSERT INTO lowongan (posisi, perusahaan, lokasi, gaji, kualifikasi, waktuDiposting, jenisWaktu, jobDesk, tanggungJawab) VALUES ('" + posisi + "', '" + perusahaan + "', '" + lokasi + "', '" + gaji + "', '" + kualifikasi + "', '" + waktuDiposting + "', '" + jenisWaktu + "', '" + jobDesk + "', '" + tanggungJawab + "')");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean deleteLowongan(int id) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            connection.createStatement().executeUpdate("DELETE FROM lowongan WHERE id = " + id);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

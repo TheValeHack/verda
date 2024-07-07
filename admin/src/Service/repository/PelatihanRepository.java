@@ -80,4 +80,22 @@ public class PelatihanRepository {
 
         return false;
     }
+
+//    deletePelatihanDB
+    public static boolean deletePelatihanDB(int idPelatihan, int idPengguna) {
+        Connection connection = null;
+        try {
+            connection = Config.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            connection.createStatement().executeUpdate("DELETE FROM pelatihan_pengguna WHERE idPelatihan = " + idPelatihan + " AND idPengguna = " + idPengguna);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

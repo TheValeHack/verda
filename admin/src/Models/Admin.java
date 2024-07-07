@@ -1,9 +1,6 @@
 package Models;
 
-import Service.repository.AdminRepository;
-import Service.repository.LanggananRepository;
-import Service.repository.LowonganRepository;
-import Service.repository.PelatihanPenggunaRepository;
+import Service.repository.*;
 
 import java.util.ArrayList;
 
@@ -68,6 +65,18 @@ public class Admin {
     }
 
     public static boolean tambahLangganan(int idPengguna, int idLangganan){
-        return LanggananRepository.addLangganan(idPengguna, idLangganan);
+        return LanggananPenggunaRepository.addLangganan(idPengguna, idLangganan);
+    }
+
+    public static boolean hapusLangganan(int idPengguna, int idLangganan){
+        return LanggananPenggunaRepository.deleteLangganan(idPengguna, idLangganan);
+    }
+
+    public boolean joinPelatihan(int idPelatihan, int idPengguna){
+        return PelatihanRepository.joinPelatihanDB(idPelatihan, idPengguna);
+    }
+
+    public boolean hapusPelatihan(int idPelatihan, int idPengguna){
+        return PelatihanRepository.deletePelatihanDB(idPelatihan, idPengguna);
     }
 }

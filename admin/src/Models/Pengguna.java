@@ -1,10 +1,7 @@
 package Models;
 
 
-import Service.repository.KelasRepository;
-import Service.repository.LanggananRepository;
-import Service.repository.LowonganRepository;
-import Service.repository.PelatihanRepository;
+import Service.repository.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -130,7 +127,7 @@ public class Pengguna {
     }
 
     public boolean joinLangganan(int idLangganan){
-        return LanggananRepository.addLangganan(this.id, idLangganan);
+        return LanggananPenggunaRepository.addLangganan(this.id, idLangganan);
     }
 
 }
