@@ -53,7 +53,7 @@ public class LamaranPekerjaanController {
     }
 	private void handleSimpanLowongan() {
 		int idLowongan = dataLowongan.getId();
-		String status = "waitiing";
+		String status = "waiting";
 		String namaLengkap = namaTf.getText();
         String asalDaerah = daerahTf.getText();
         String tentangSaya = tentangTf.getText();
