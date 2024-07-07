@@ -130,6 +130,17 @@ public class App extends Application {
             primaryStage.show();
         }
     }
+    public static void showTambahKomunitasView() throws Exception {
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            Parent lowonganView = FXMLLoader.load(App.class.getResource("/Views/TambahKomunitas.fxml"));
+            Scene lowonganScene = new Scene(lowonganView);
+            primaryStage.setScene(lowonganScene);
+            primaryStage.setTitle("Tambah Langganan");
+            primaryStage.show();
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

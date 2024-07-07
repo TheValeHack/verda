@@ -4,8 +4,6 @@ import java.util.Optional;
 
 import Main.App;
 import Service.repository.LanggananPenggunaRepository;
-import Service.repository.LowonganRepository;
-import Service.repository.PelatihanRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;

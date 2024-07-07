@@ -1,6 +1,5 @@
 package Controller;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 import Main.App;
