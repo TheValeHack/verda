@@ -103,12 +103,12 @@ public class LowonganController {
                 final TableCell<LowonganPengguna, Void> cell = new TableCell<>() {
                     private final Button terimaButton = new Button("Terima");
                     private final Button tolakButton = new Button("Tolak");
-                    private final Button cekSertifikatButton = new Button("Cek Sertifikat");
+//                    private final Button cekSertifikatButton = new Button("Cek Sertifikat");
 
                     {
                     	terimaButton.getStyleClass().add("terima-button");
                     	tolakButton.getStyleClass().add("tolak-button");
-                    	cekSertifikatButton.getStyleClass().add("cekSertifikat-button");
+//                    	cekSertifikatButton.getStyleClass().add("cekSertifikat-button");
                     	
                         terimaButton.setOnAction(event -> {
                             LowonganPengguna selected = getTableView().getItems().get(getIndex());
@@ -137,12 +137,12 @@ public class LowonganController {
                             }
                         });
 
-                        cekSertifikatButton.setOnAction(event -> {
-                            LowonganPengguna selected = getTableView().getItems().get(getIndex());
-                            if (selected != null) {
-                                System.out.println("Cek Sertifikat: " + selected.getId());
-                            }
-                        });
+//                        cekSertifikatButton.setOnAction(event -> {
+//                            LowonganPengguna selected = getTableView().getItems().get(getIndex());
+//                            if (selected != null) {
+//                                System.out.println("Cek Sertifikat: " + selected.getId());
+//                            }
+//                        });
                     }
 
                     @Override
@@ -151,7 +151,8 @@ public class LowonganController {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            VBox buttons = new VBox(terimaButton, tolakButton, cekSertifikatButton);
+//                            VBox buttons = new VBox(terimaButton, tolakButton, cekSertifikatButton);
+                            VBox buttons = new VBox(terimaButton, tolakButton);
                             buttons.setAlignment(Pos.CENTER);
                             buttons.setSpacing(5);
                             setGraphic(buttons);
