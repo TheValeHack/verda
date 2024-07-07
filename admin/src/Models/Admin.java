@@ -1,6 +1,7 @@
 package Models;
 
 import Service.repository.AdminRepository;
+import Service.repository.LanggananRepository;
 import Service.repository.LowonganRepository;
 import Service.repository.PelatihanPenggunaRepository;
 
@@ -64,5 +65,9 @@ public class Admin {
 
     public static ArrayList<LowonganPengguna> getAllLowonganPengguna(){
         return LowonganRepository.getAllLowonganPenggunaDB();
+    }
+
+    public static boolean tambahLangganan(int idPengguna, int idLangganan){
+        return LanggananRepository.addLangganan(idPengguna, idLangganan);
     }
 }
