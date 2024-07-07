@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LamaranPekerjaanController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TambahLowonganController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="600.0">
             <children>
@@ -41,7 +41,7 @@
             <content>
                 <VBox alignment="TOP_CENTER" prefHeight="547.0" prefWidth="798.0" spacing="20.0" style="-fx-padding: 20px;">
                     <children>
-                        <VBox prefHeight="390.0" prefWidth="758.0" spacing="7.0" style="-fx-background-color: #EBEBEB; -fx-background-radius: 10;">
+                        <VBox prefHeight="390.0" prefWidth="758.0" spacing="1.0" style="-fx-background-color: #EBEBEB; -fx-background-radius: 10;">
                             <children>
                                 <VBox prefHeight="69.0" prefWidth="718.0">
                                     <children>
@@ -55,7 +55,7 @@
                                                 <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="namaTf" prefHeight="1.0" prefWidth="718.0" />
+                                        <TextField fx:id="posisiTf" prefHeight="1.0" prefWidth="718.0" />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="69.0" prefWidth="718.0">
@@ -70,10 +70,10 @@
                                                 <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <ComboBox fx:id="genderCb" prefWidth="150.0" promptText="Full Time" />
+                                        <ComboBox fx:id="jenisWaktuCb" prefWidth="150.0" promptText="Full Time" />
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="69.0" prefWidth="718.0">
+                                <VBox prefHeight="69.0" prefWidth="718.0" spacing="1.0">
                                     <children>
                                         <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="758.0">
                                             <children>
@@ -82,9 +82,10 @@
                                                         <Font name="System Bold" size="12.0" />
                                                     </font>
                                                 </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="daerahTf" prefHeight="1.0" prefWidth="718.0" />
+                                        <TextField fx:id="perusahaanTf" prefHeight="1.0" prefWidth="718.0" />
                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="758.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lokasi">
@@ -92,9 +93,10 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                  </children>
                               </HBox>
-                              <TextField fx:id="daerahTf1" layoutX="10.0" layoutY="28.0" prefHeight="1.0" prefWidth="718.0" />
+                              <TextField fx:id="lokasiTf" layoutX="10.0" layoutY="28.0" prefHeight="1.0" prefWidth="718.0" />
                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="53.0" prefHeight="34.0" prefWidth="758.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gaji">
@@ -102,33 +104,54 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                  </children>
                               </HBox>
-                              <TextField fx:id="daerahTf11" prefHeight="1.0" prefWidth="718.0" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kualifikasi">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="daerahTf111" prefHeight="1.0" prefWidth="718.0" />
-                              <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waktu Diposting">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <DatePicker />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="JobDesk">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="daerahTf1111" prefHeight="1.0" prefWidth="718.0" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggung Jawab">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="daerahTf11111" prefHeight="1.0" prefWidth="718.0" />
+                              <TextField fx:id="gajiTf" prefHeight="1.0" prefWidth="718.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="758.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kualifikasi">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="kualifikasiTf" prefHeight="1.0" prefWidth="718.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="758.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Waktu Disposting">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                                 </children>
+                              </HBox>
+                              <DatePicker fx:id="waktuDp" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="758.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Deskripsi Pekerjaan">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="deskripsiTf" prefHeight="1.0" prefWidth="718.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="758.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggung Jawab">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="tanggungJawabTf" prefHeight="1.0" prefWidth="718.0" />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="69.0" prefWidth="718.0" />
@@ -145,12 +168,12 @@
                                 <HBox fx:id="agreementCheck" prefHeight="52.0" prefWidth="758.0" />
                             </children>
                             <padding>
-                                <Insets left="20.0" right="20.0" top="10.0" />
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                             </padding>
                         </VBox>
                         <Button fx:id="simpanButton" mnemonicParsing="false" prefHeight="23.0" prefWidth="109.0" style="-fx-background-color: #03CBB3;" text="Simpan" textAlignment="CENTER" textFill="WHITE">
                             <padding>
-                                <Insets bottom="5.0" left="25.0" right="25.0" />
+                                <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
                             </padding>
                             <font>
                                 <Font name="System Bold" size="12.0" />

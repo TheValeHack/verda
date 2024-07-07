@@ -97,6 +97,39 @@ public class App extends Application {
             primaryStage.show();
         }
     }
+    public static void showTambahLowonganView() throws Exception {
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            Parent lowonganView = FXMLLoader.load(App.class.getResource("/Views/TambahLowongan.fxml"));
+            Scene lowonganScene = new Scene(lowonganView);
+            primaryStage.setScene(lowonganScene);
+            primaryStage.setTitle("Tambah Lowongan");
+            primaryStage.show();
+        }
+    }
+    public static void showTambahPelatihanView() throws Exception {
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            Parent lowonganView = FXMLLoader.load(App.class.getResource("/Views/TambahPelatihan.fxml"));
+            Scene lowonganScene = new Scene(lowonganView);
+            primaryStage.setScene(lowonganScene);
+            primaryStage.setTitle("Tambah Pelatihan");
+            primaryStage.show();
+        }
+    }
+    public static void showTambahLanggananView() throws Exception {
+        if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            Parent lowonganView = FXMLLoader.load(App.class.getResource("/Views/TambahLangganan.fxml"));
+            Scene lowonganScene = new Scene(lowonganView);
+            primaryStage.setScene(lowonganScene);
+            primaryStage.setTitle("Tambah Langganan");
+            primaryStage.show();
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

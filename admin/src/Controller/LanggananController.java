@@ -11,6 +11,8 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 
+import Main.App;
+
 public class LanggananController {
     @FXML
     private TableView<LanggananPengguna> table;
@@ -33,6 +35,16 @@ public class LanggananController {
     public void initialize() {
         tambahButton.getStyleClass().add("tambah-button");
         loadTableData();
+        tambahButton.setOnMouseClicked(action -> handleTambahLangganan());
+    }
+
+    private void handleTambahLangganan() {
+    	try {
+			App.showTambahLanggananView();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     private void loadTableData() {

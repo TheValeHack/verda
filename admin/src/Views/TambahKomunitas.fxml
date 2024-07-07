@@ -54,7 +54,7 @@
                                                 <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="namaTf" prefHeight="1.0" prefWidth="718.0" />
+                                        <TextField fx:id="namaKomunitasTf" prefHeight="1.0" prefWidth="718.0" />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="69.0" prefWidth="718.0">
@@ -69,7 +69,7 @@
                                                 <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="daerahTf" prefHeight="1.0" prefWidth="718.0" />
+                                        <TextField fx:id="kategoriTf" prefHeight="1.0" prefWidth="718.0" />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="69.0" prefWidth="718.0">
@@ -81,9 +81,10 @@
                                                         <Font name="System Bold" size="12.0" />
                                                     </font>
                                                 </Text>
+                                    <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <ComboBox fx:id="genderCb" prefWidth="150.0" promptText="Pilih Program..." />
+                                        <ComboBox fx:id="visibilityCb" prefWidth="150.0" promptText="Pilih Visibility..." />
                                     </children>
                                 </VBox>
                             </children>
@@ -93,7 +94,7 @@
                         </VBox>
                         <Button fx:id="simpanButton" mnemonicParsing="false" prefHeight="23.0" prefWidth="109.0" style="-fx-background-color: #03CBB3;" text="Simpan" textAlignment="CENTER" textFill="WHITE">
                             <padding>
-                                <Insets bottom="5.0" left="25.0" right="25.0" />
+                                <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
                             </padding>
                             <font>
                                 <Font name="System Bold" size="12.0" />

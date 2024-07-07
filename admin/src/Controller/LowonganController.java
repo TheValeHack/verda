@@ -15,7 +15,12 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 
+import Main.App;
+
 public class LowonganController {
+	@FXML
+	private Button tambahButton;
+	
     @FXML
     private TableView<LowonganPengguna> tableLamaran;
     @FXML
@@ -67,8 +72,19 @@ public class LowonganController {
     public void initialize() {
         loadTableLamaran();
         loadTableLowongan();
+        
+        tambahButton.setOnMouseClicked(action -> handleTambahLowongan());
     }
 
+    private void handleTambahLowongan() {
+    	try {
+			App.showTambahLowonganView();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
     private void loadTableLamaran() {
         ArrayList<LowonganPengguna> data = LowonganPenggunaRepository.getAllLowonganPengguna();
         daftarLowonganPengguna = FXCollections.observableArrayList(data);
@@ -114,7 +130,7 @@ public class LowonganController {
                             	Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Apakah Anda yakin ingin menolak lamaran ini?", ButtonType.YES, ButtonType.NO);
                                 alert.showAndWait().ifPresent(response -> {
                                     if (response == ButtonType.YES) {
-                                    	LowonganPenggunaRepository.rejectStatusDB(selected.getId());
+                                    	LowonganRepository.rejectStatusDB(selected.getId());
                                     	loadTableLamaran();
                                     }
                                 });

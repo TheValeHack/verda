@@ -12,6 +12,8 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 
+import Main.App;
+
 public class PelatihanController {
     @FXML
     private TableView<PelatihanPengguna> table;
@@ -34,8 +36,19 @@ public class PelatihanController {
     public void initialize() {
         tambahButton.getStyleClass().add("tambah-button");
         loadTableData();
+        
+        tambahButton.setOnMouseClicked(action -> handleTambahPelatihan());
     }
 
+    private void handleTambahPelatihan() {
+    	try {
+			App.showTambahPelatihanView();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
     private void loadTableData() {
         ArrayList<PelatihanPengguna> data = PelatihanPenggunaRepository.getAllPelatihanPengguna();
         daftarPelatihanPengguna = FXCollections.observableArrayList(data);
