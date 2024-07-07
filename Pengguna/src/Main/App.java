@@ -27,7 +27,6 @@ public class App extends Application {
     	AuthInterceptor.setPrimaryStage(primaryStage);
         App.primaryStage = primaryStage;
 
-        showPelatihanView();
         if (Session.getUser() == null) {
             showLoginView();
         } else {
