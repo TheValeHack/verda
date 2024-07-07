@@ -1,9 +1,7 @@
 package Controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.PriorityQueue;
 
 import Main.App;
 import javafx.fxml.FXML;
@@ -24,37 +22,31 @@ public class KelasBelajarController {
     @FXML
     private VBox vboxdaftarmateri;
 
+    Langganan userLangganan;
     private KelasBelajar kelasBelajar;
-    private ArrayList<KelasVideo> kelasMateri;
-    private ArrayList<KelasQuiz> kelasQuiz;
+    private PriorityQueue<Object> materiQueue;
 
     public void initData(KelasBelajar kelasBelajar) {
-    	this.kelasBelajar = kelasBelajar;
-        kelasMateri = kelasBelajar.getVideos();
-        kelasQuiz = kelasBelajar.getQuizzes();
+        this.kelasBelajar = kelasBelajar;
         Pengguna currentUser = Session.getUser();
-    	Langganan userLangganan = currentUser.getLangganan();
+        userLangganan = currentUser.getLangganan();
 
-        ArrayList<Object> combinedList = new ArrayList<>();
-        combinedList.addAll(kelasMateri);
-        combinedList.addAll(kelasQuiz);
-
-        Collections.sort(combinedList, new Comparator<Object>() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                if (o1 instanceof KelasVideo && o2 instanceof KelasQuiz) {
-                    return ((KelasVideo) o1).getOrderVideo() - ((KelasQuiz) o2).getOrderQuiz();
-                } else if (o1 instanceof KelasQuiz && o2 instanceof KelasVideo) {
-                    return ((KelasQuiz) o1).getOrderQuiz() - ((KelasVideo) o2).getOrderVideo();
-                } else if (o1 instanceof KelasVideo && o2 instanceof KelasVideo) {
-                    return ((KelasVideo) o1).getOrderVideo() - ((KelasVideo) o2).getOrderVideo();
-                } else {
-                    return ((KelasQuiz) o1).getOrderQuiz() - ((KelasQuiz) o2).getOrderQuiz();
-                }
-            }
+        materiQueue = new PriorityQueue<>((o1, o2) -> {
+            int order1 = (o1 instanceof KelasVideo) ? ((KelasVideo) o1).getOrderVideo() : ((KelasQuiz) o1).getOrderQuiz();
+            int order2 = (o2 instanceof KelasVideo) ? ((KelasVideo) o2).getOrderVideo() : ((KelasQuiz) o2).getOrderQuiz();
+            return Integer.compare(order1, order2);
         });
 
-        for (Object item : combinedList) {
+        materiQueue.addAll(kelasBelajar.getVideos());
+        materiQueue.addAll(kelasBelajar.getQuizzes());
+
+        processMateri();
+    }
+
+    private void processMateri() {
+        while (!materiQueue.isEmpty()) {
+            Object item = materiQueue.poll();
+
             try {
                 HBox hbox;
                 if (item instanceof KelasVideo) {
@@ -62,64 +54,60 @@ public class KelasBelajarController {
                     hbox = loader.load();
                     MateriItemController controller = loader.getController();
                     controller.setData((KelasVideo) item);
-                    
-                    int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
-                    if(userLangganan == null) {
-                    	if(order < 2) {
-                    		hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
-                    	}
-                    } else {
-                    	hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
-                    }
-                } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/KuisItem.fxml"));
-                    hbox = loader.load();
-                    KuisItemController controller = loader.getController();
-                    controller.setData((KelasQuiz) item);
-                    int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
-                    if(userLangganan == null) {
-                    	if(order < 2) {
-                    		hbox.setOnMouseClicked(event -> handleOpenQuiz((KelasQuiz) item));
-                    	}
-                    } else {
-                    	hbox.setOnMouseClicked(event -> handleOpenQuiz((KelasQuiz) item));
-                    }
-                }
-                
-                int order = (item instanceof KelasVideo) ? ((KelasVideo) item).getOrderVideo() : ((KelasQuiz) item).getOrderQuiz();
-                if(userLangganan == null) {
-                	if (order > 1) {
+
+                    int order = ((KelasVideo) item).getOrderVideo();
+                    if (order >= 2 && userLangganan == null) {
                         Pane overlay = new Pane();
                         overlay.getStyleClass().add("overlay");
                         hbox.getChildren().add(overlay);
                         hbox.getStyleClass().add("disable-click");
+                    } else {
+                        hbox.setOnMouseClicked(event -> handleOpenVideo((KelasVideo) item));
                     }
+                } else if (item instanceof KelasQuiz) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/KuisItem.fxml"));
+                    hbox = loader.load();
+                    KuisItemController controller = loader.getController();
+                    controller.setData((KelasQuiz) item);
+
+                    int order = ((KelasQuiz) item).getOrderQuiz();
+                    if (order >= 2 && userLangganan == null) {
+                        Pane overlay = new Pane();
+                        overlay.getStyleClass().add("overlay");
+                        hbox.getChildren().add(overlay);
+                        hbox.getStyleClass().add("disable-click");
+                    } else {
+                        hbox.setOnMouseClicked(event -> handleOpenQuiz((KelasQuiz) item));
+                    }
+                } else {
+                    continue;
                 }
-                
+
                 vboxdaftarmateri.getChildren().add(hbox);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
     @FXML
     private void handleBackButtonClick(MouseEvent event) throws Exception {
         App.showPelatihanView();
     }
+
     private void handleOpenVideo(KelasVideo video) {
-    	try {
-			App.showPlayVideoView(kelasBelajar, video);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            App.showPlayVideoView(kelasBelajar, video);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
     private void handleOpenQuiz(KelasQuiz quiz) {
-    	try {
-			App.showPlayQuizView(kelasBelajar, quiz);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            App.showPlayQuizView(kelasBelajar, quiz);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
