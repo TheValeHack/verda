@@ -37,10 +37,10 @@ public class LanggananRepository {
             if (result.next()) {
                 return new Langganan(
                         result.getInt("id"),
-                        result.getString("jenis langganan"),
-                        result.getString("durasi langganan"),
-                        result.getString("benefit langganan"),
-                        result.getInt("harga langganan")
+                        result.getString("jenisLangganan"),
+                        result.getString("durasiLangganan"),
+                        result.getString("benefitLangganan"),
+                        result.getInt("hargaLangganan")
                 );
             }
         } catch (SQLException e) {

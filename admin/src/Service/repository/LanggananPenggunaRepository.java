@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LanggananPenggunaRepository {
-    public ArrayList<LanggananPengguna> getAllLanggananPengguna(){
+    public static ArrayList<LanggananPengguna> getAllLanggananPengguna(){
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
@@ -19,7 +19,7 @@ while (result.next()) {
                         result.getInt("id"),
                         result.getInt("idPengguna"),
                         result.getInt("idLangganan"),
-                        result.getString("status")
+                        result.getString("sampaiDengan")
                 );
                 langgananPenggunaArrayList.add(langgananPengguna);
             }

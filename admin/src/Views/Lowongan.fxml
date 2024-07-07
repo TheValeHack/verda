@@ -75,70 +75,71 @@
             </children>
         </HBox>
     </top>
-   <center>
-      <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="526.0" prefWidth="718.0" spacing="30.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="192.0" text="Tambah Lowongan+" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <ScrollPane prefHeight="599.0" prefWidth="658.0">
-               <content>
-                  <VBox prefHeight="593.0" prefWidth="1220.0" spacing="20.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pengguna Melamar">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <ScrollPane hbarPolicy="NEVER" minWidth="-Infinity" prefHeight="319.0" prefWidth="1220.0">
-                           <content>
-                              <TableView fx:id="table" prefHeight="238.0" prefWidth="750.0">
-                                <columns>
-                                  <TableColumn fx:id="no" prefWidth="32.66663300991058" text="Id" />
-                                  <TableColumn fx:id="namaPengguna" prefWidth="145.99999237060547" text="Nama Lengkap" />
-                                    <TableColumn fx:id="gender" prefWidth="100.66659545898438" text="Gender" />
-                                    <TableColumn fx:id="asal" prefWidth="109.3333740234375" text="Asal Daerah" />
-                                    <TableColumn fx:id="program" prefWidth="126.00009155273438" text="Pendidikan Terakhir" />
-                                    <TableColumn fx:id="program1" minWidth="0.0" prefWidth="136.6666259765625" text="Tentang" />
-                                    <TableColumn fx:id="aksi" minWidth="4.0" prefWidth="98.666748046875" text="Aksi" />
-                                </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lowongan Pekerjaan">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <ScrollPane hbarPolicy="NEVER" minWidth="-Infinity" prefHeight="287.0" prefWidth="1220.0">
-                           <content>
-                              <TableView fx:id="table1" prefHeight="317.0" prefWidth="1220.0">
-                                 <columns>
-                                    <TableColumn fx:id="no1" prefWidth="32.66663300991058" text="Id" />
-                                    <TableColumn fx:id="namaPengguna1" prefWidth="98.66669464111328" text="Posisi" />
-                                    <TableColumn fx:id="gender1" prefWidth="129.33326721191406" text="Perusahaan" />
-                                    <TableColumn fx:id="asal1" prefWidth="100.0" text="Lokasi" />
-                                    <TableColumn fx:id="program1" prefWidth="121.33328247070312" text="Gaji" />
-                                    <TableColumn fx:id="program11" minWidth="0.0" prefWidth="106.66680908203125" text="Kualifikasi" />
-                                    <TableColumn fx:id="program111" minWidth="0.0" prefWidth="113.333251953125" text="Jenis Waktu" />
-                                    <TableColumn fx:id="program1111" minWidth="0.0" prefWidth="129.33334350585938" text="Deskripsi Pekerjaan" />
-                                    <TableColumn fx:id="program11111" minWidth="0.0" prefWidth="129.33334350585938" text="Tanggung Jawab" />
-                                    <TableColumn fx:id="namaPengguna11" prefWidth="115.0" text="Waktu Diposting" />
-                                    <TableColumn fx:id="aksi1" prefWidth="84.66664632161462" text="Aksi" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
-         </padding>
-      </VBox>
-   </center>
+    <center>
+        <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="526.0" prefWidth="718.0" spacing="30.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="tambahButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="192.0" text="Tambah Lowongan+" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <ScrollPane prefHeight="599.0" prefWidth="658.0">
+                    <content>
+                        <VBox prefHeight="593.0" prefWidth="1220.0" spacing="20.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pengguna Melamar">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Text>
+                                <ScrollPane hbarPolicy="NEVER" minWidth="-Infinity" prefHeight="319.0" prefWidth="1220.0">
+                                    <content>
+                                        <TableView fx:id="tableLamaran" prefHeight="238.0" prefWidth="830.0">
+                                            <columns>
+                                                <TableColumn fx:id="lamaran_idColumn" prefWidth="32.66663300991058" text="Id" />
+                                    <TableColumn fx:id="lamaran_statusColumn" prefWidth="78.66667938232422" text="Status" />
+                                                <TableColumn fx:id="lamaran_namaPenggunaColumn" prefWidth="100.0" text="Nama Lengkap" />
+                                                <TableColumn fx:id="lamaran_genderColumn" prefWidth="100.66659545898438" text="Gender" />
+                                                <TableColumn fx:id="lamaran_asalColumn" prefWidth="109.3333740234375" text="Asal Daerah" />
+                                                <TableColumn fx:id="lamaran_pendidikanColumn" prefWidth="126.00009155273438" text="Pendidikan Terakhir" />
+                                                <TableColumn fx:id="lamaran_tentangColumn" minWidth="0.0" prefWidth="136.6666259765625" text="Tentang" />
+                                                <TableColumn fx:id="lamaran_aksiColumn" minWidth="4.0" prefWidth="98.666748046875" text="Aksi" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lowongan Pekerjaan">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Text>
+                                <ScrollPane hbarPolicy="NEVER" minWidth="-Infinity" prefHeight="287.0" prefWidth="1220.0">
+                                    <content>
+                                        <TableView fx:id="tableLowongan" prefHeight="317.0" prefWidth="1220.0">
+                                            <columns>
+                                                <TableColumn fx:id="lowongan_idColumn" prefWidth="32.66663300991058" text="Id" />
+                                                <TableColumn fx:id="lowongan_posisiColumn" prefWidth="98.66669464111328" text="Posisi" />
+                                                <TableColumn fx:id="lowongan_perusahaanColumn" prefWidth="129.33326721191406" text="Perusahaan" />
+                                                <TableColumn fx:id="lowongan_lokasiColumn" prefWidth="100.0" text="Lokasi" />
+                                                <TableColumn fx:id="lowongan_gajiColumn" prefWidth="121.33328247070312" text="Gaji" />
+                                                <TableColumn fx:id="lowongan_kualifikasiColumn" minWidth="0.0" prefWidth="106.66680908203125" text="Kualifikasi" />
+                                                <TableColumn fx:id="lowongan_jenisWaktuColumn" minWidth="0.0" prefWidth="113.333251953125" text="Jenis Waktu" />
+                                                <TableColumn fx:id="lowongan_deskripsiColumn" minWidth="0.0" prefWidth="129.33334350585938" text="Deskripsi Pekerjaan" />
+                                                <TableColumn fx:id="lowongan_tanggungJawabColumn" minWidth="0.0" prefWidth="129.33334350585938" text="Tanggung Jawab" />
+                                                <TableColumn fx:id="lowongan_waktuDipostingColumn" prefWidth="115.0" text="Waktu Diposting" />
+                                                <TableColumn fx:id="lowongan_aksiColumn" prefWidth="84.66664632161462" text="Aksi" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+            </padding>
+        </VBox>
+    </center>
 </BorderPane>
