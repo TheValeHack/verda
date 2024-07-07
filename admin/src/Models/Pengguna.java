@@ -10,10 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Pengguna {
-    private String  namaPengguna, nomorTelepon, jenisKelamin, tanggalLahir, profesi, provinsi, kota, email, password, langganan;
+    private String  namaPengguna, nomorTelepon, jenisKelamin, tanggalLahir, profesi, provinsi, kota, email, password;
     private int id;
 
-    public Pengguna(String namaPengguna, String nomorTelepon, String jenisKelamin, String tanggalLahir, String profesi, String provinsi, String kota, String email, String password, String langganan) {
+    public Pengguna(String namaPengguna, String nomorTelepon, String jenisKelamin, String tanggalLahir, String profesi, String provinsi, String kota, String email, String password) {
         this.namaPengguna = namaPengguna;
         this.nomorTelepon = nomorTelepon;
         this.jenisKelamin = jenisKelamin;
@@ -23,7 +23,6 @@ public class Pengguna {
         this.kota = kota;
         this.email = email;
         this.password = password;
-        this.langganan = langganan;
     }
 
     public int getId() {
