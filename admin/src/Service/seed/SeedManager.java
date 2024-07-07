@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 public class SeedManager {
     public static void seed() {
+    	seedAdmin();
     }
 
     public static void main(String[] args)  {

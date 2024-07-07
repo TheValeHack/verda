@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MigrateManager {
     public static void migrate(){
-
+    	migrateAdmin();
     }
 
     public static void main(String[] args) {
