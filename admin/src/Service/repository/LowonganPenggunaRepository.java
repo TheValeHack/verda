@@ -38,6 +38,30 @@ public class LowonganPenggunaRepository {
         return LowonganRepository.joinLowonganDB(idLowongan, idPengguna, status, namaLengkap, gender, asalDaerah, pendidikanTerakhir, tentangSaya);
     }
 
+    public static boolean acceptStatusDB(int idLowonganPengguna){
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            statement.executeUpdate("UPDATE lowongan_pengguna SET status = 'accepted' WHERE id = " + idLowonganPengguna);
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean rejectStatusDB(int idLowonganPengguna){
+        try {
+            Connection connection = Config.getConnection();
+            var statement = connection.createStatement();
+            statement.executeUpdate("UPDATE lowongan_pengguna SET status = 'rejected' WHERE id = " + idLowonganPengguna);
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
     public static boolean deleteLowonganPengguna(int idLowongan, int idPengguna) {
         try {
             Connection connection = Config.getConnection();
