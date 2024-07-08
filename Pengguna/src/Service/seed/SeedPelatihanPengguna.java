@@ -10,8 +10,8 @@ public class SeedPelatihanPengguna {
         try {
             Connection connection = Config.getConnection();
             truncatePelatihanPengguna();
-            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna) VALUES (1, 1)");
-            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna) VALUES (1, 2)");
+            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna, aktifHingga, status) VALUES (1, 1, '08-10-2024', 'pending')");
+            connection.createStatement().executeUpdate("INSERT INTO pelatihan_pengguna (idPelatihan, idPengguna, aktifHingga, status) VALUES (1, 2, '08-10-2024', 'pending')");
 
             System.out.println("Seed Pelatihan Pengguna berhasil");
             connection.close();
