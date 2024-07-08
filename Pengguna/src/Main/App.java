@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import Controller.KelasBelajarController;
 import Controller.LamaranPekerjaanController;
 import Controller.LowonganDetailController;
+import Controller.PlayQuizController;
 import Controller.PlayVideoController;
 import Models.KelasBelajar;
+import Models.KelasQuiz;
 import Models.KelasVideo;
 import Models.Lowongan;
 import Models.Pelatihan;
@@ -179,6 +181,19 @@ public class App extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+    public static void showPlayQuizView(KelasBelajar kelasBelajar, KelasQuiz kelasQuiz) throws Exception {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayQuiz.fxml"));
+        Parent root = loader.load();
+        
+        PlayQuizController controller = loader.getController();
+        controller.initData(kelasBelajar, kelasQuiz);
+        
+
+        primaryStage.setTitle("KelasBelajar");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
 
 
     public static void main(String[] args) {

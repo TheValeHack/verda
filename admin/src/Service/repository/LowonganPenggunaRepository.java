@@ -37,7 +37,7 @@ public class LowonganPenggunaRepository {
     public static boolean addLowonganPengguna(int idLowongan, int idPengguna, String status, String namaLengkap, String gender, String asalDaerah, String pendidikanTerakhir, String tentangSaya) throws SQLException {
         return LowonganRepository.joinLowonganDB(idLowongan, idPengguna, status, namaLengkap, gender, asalDaerah, pendidikanTerakhir, tentangSaya);
     }
-
+    
     public static boolean deleteLowonganPengguna(int idLowongan, int idPengguna) {
         try {
             Connection connection = Config.getConnection();

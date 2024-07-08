@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/Desain.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LowonganController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../Styles/Desain.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LanggananController">
     <left>
         <fx:include source="Sidebar.fxml" />
     </left>
@@ -78,7 +78,7 @@
    <center>
       <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="526.0" prefWidth="718.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="273.0" text="Tambah Pengguna Berlangganan +" textFill="WHITE">
+            <Button fx:id="tambahButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="273.0" text="Tambah Pengguna Berlangganan +" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -94,11 +94,11 @@
                      <content>
                         <TableView fx:id="table" prefHeight="404.0" prefWidth="718.0">
                           <columns>
-                            <TableColumn fx:id="no" prefWidth="38.000008940696716" text="Id" />
-                            <TableColumn fx:id="namaPengguna" prefWidth="101.33331680297852" text="Id Pengguna" />
-                              <TableColumn fx:id="gender" minWidth="0.0" prefWidth="199.33328247070312" text="Paket Langganan" />
-                              <TableColumn fx:id="asal" prefWidth="212.0001220703125" text="Aktif Hingga" />
-                              <TableColumn fx:id="aksi" prefWidth="94.666748046875" text="Aksi" />
+                            <TableColumn fx:id="idColumn" prefWidth="38.000008940696716" text="Id" />
+                            <TableColumn fx:id="idPenggunaColumn" prefWidth="101.33331680297852" text="Id Pengguna" />
+                              <TableColumn fx:id="paketLanggananColumn" minWidth="0.0" prefWidth="199.33328247070312" text="Paket Langganan" />
+                              <TableColumn fx:id="aktifHinggaColumn" prefWidth="212.0001220703125" text="Aktif Hingga" />
+                              <TableColumn fx:id="aksiColumn" prefWidth="94.666748046875" text="Aksi" />
                           </columns>
                         </TableView>
                      </content>
