@@ -11,8 +11,8 @@ public class SeedKelasBelajar {
             Connection connection = Config.getConnection();
             truncateKelasBelajar();
 
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar (idPelatihan, namaKelas, gambarKelas) VALUES (1, 'Wortel', 'path-to-wortel-cuy.jpg')");
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar (idPelatihan, namaKelas, gambarKelas) VALUES (1, 'Tomat', 'path-to-tomat-cuy.jpg')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar (idPelatihan, namaKelas, gambarKelas) VALUES (1, 'Wortel', '/Styles/Image/icon%20wortel.png')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar (idPelatihan, namaKelas, gambarKelas) VALUES (1, 'Tomat', '/Styles/Image/icon%20wortel.png')");
 
             System.out.println("Seed Kelas Belajar berhasil");
             connection.close();
