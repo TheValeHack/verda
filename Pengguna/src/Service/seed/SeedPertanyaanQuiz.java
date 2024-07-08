@@ -10,9 +10,10 @@ public class SeedPertanyaanQuiz {
         try {
             Connection connection = Config.getConnection();
             truncatePertanyaanQuiz();
-            connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (1, 'Apakah wortel itu?')");
+            connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (1, 'Berapa kedalaman tanah yang ideal untuk menanam biji wortel?')");
             connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (1, 'Berapa lama waktu yang dibutuhkan wortel untuk siap panen setelah ditanam?')");
-            connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (1, 'Apakah wortel itu?')");
+            connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (1, 'Apa jenis tanah yang paling cocok untuk menanam wortel?')");
+            connection.createStatement().executeUpdate("INSERT INTO pertanyaan_quiz (idQuiz, pertanyaan) VALUES (2, 'Apa hal yang harus dihindari saat menanam wortel?')");
 
             System.out.println("Seed Pertanyaan Quiz berhasil");
             connection.close();

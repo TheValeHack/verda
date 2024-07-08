@@ -10,8 +10,8 @@ public class SeedKelasBelajarQuiz {
         try {
             Connection connection = Config.getConnection();
             truncateKelasBelajarQuiz();
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_quiz (idKelas, orderQuiz, namaQuiz) VALUES (1, 1, 'Quiz Wortel')");
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_quiz (idKelas, orderQuiz, namaQuiz) VALUES (1, 2, 'Quiz Tomat')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_quiz (idKelas, orderQuiz, namaQuiz) VALUES (1, 2, 'Quiz Cara Menanam Wortel 1')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_quiz (idKelas, orderQuiz, namaQuiz) VALUES (1, 4, 'Quiz Cara Menanam Wortel 2')");
 
             System.out.println("Seed Kelas Belajar Quiz berhasil");
             connection.close();

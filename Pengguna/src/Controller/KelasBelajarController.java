@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.PriorityQueue;
 
@@ -7,7 +8,10 @@ import Main.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import util.Session;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -18,6 +22,13 @@ import Models.Langganan;
 import Models.Pengguna;
 
 public class KelasBelajarController {
+	
+	@FXML
+	private ImageView gambarKelas;
+	
+	@FXML
+	private Text namaKelas;
+	
 
     @FXML
     private VBox vboxdaftarmateri;
@@ -30,6 +41,9 @@ public class KelasBelajarController {
         this.kelasBelajar = kelasBelajar;
         Pengguna currentUser = Session.getUser();
         userLangganan = currentUser.getLangganan();
+        
+        namaKelas.setText(kelasBelajar.getNamaKelas());
+        gambarKelas.setImage(new Image("file:///"+getImageFilePath(kelasBelajar.getGambarKelas())));
 
         materiQueue = new PriorityQueue<>((o1, o2) -> {
             int order1 = (o1 instanceof KelasVideo) ? ((KelasVideo) o1).getOrderVideo() : ((KelasQuiz) o1).getOrderQuiz();
@@ -109,5 +123,11 @@ public class KelasBelajarController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    private String getImageFilePath(String relativePath) {
+        String projectPath = System.getProperty("user.dir");
+        String absolutePath = projectPath + "/src/".replace("/", File.separator) + relativePath.replace("/", File.separator);
+        return absolutePath;
     }
 }

@@ -70,7 +70,7 @@
                                                 <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
                                             </children>
                                         </HBox>
-                                        <ComboBox fx:id="jenisWaktuCb" prefWidth="150.0" promptText="Full Time" />
+                                        <ComboBox fx:id="jenisWaktuCb" prefWidth="150.0" promptText="Pilih jenis waktu..." />
                                     </children>
                                 </VBox>
                                 <VBox prefHeight="69.0" prefWidth="718.0" spacing="1.0">
