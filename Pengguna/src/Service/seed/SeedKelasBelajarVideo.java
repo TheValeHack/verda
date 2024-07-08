@@ -11,7 +11,7 @@ public class SeedKelasBelajarVideo {
             Connection connection = Config.getConnection();
             truncateKelasBelajarVideo();
             connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Belajar dasar cara menanam wortel + persiapan', 1, '/Styles/Videos/nanamwortel.mp4')");
-            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Hal hal yang harus dihindari saat menanam wortel', 2, '/Styles/Videos/nanamwortel.mp4')");
+            connection.createStatement().executeUpdate("INSERT INTO kelas_belajar_video (idKelas, judulVideo, orderVideo, linkVideo) VALUES (1, 'Hal hal yang harus dihindari saat menanam wortel', 3, '/Styles/Videos/nanamwortel.mp4')");
 
             System.out.println("Seed Kelas Belajar Video berhasil");
             connection.close();

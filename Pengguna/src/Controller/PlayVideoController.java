@@ -39,7 +39,7 @@ public class PlayVideoController {
     
     private String getVideoFilePath(String relativePath) {
         String projectPath = System.getProperty("user.dir");
-        String absolutePath = projectPath + "/resource/" + relativePath.replace("/", File.separator);
+        String absolutePath = projectPath + "/src/".replace("/", File.separator) + relativePath.replace("/", File.separator);
         return absolutePath;
     }
     

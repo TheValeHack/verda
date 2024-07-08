@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -153,7 +154,7 @@ public class PelatihanController {
         );
         kotakKelas.setBackground(new Background(backgroundFill));
 
-        ImageView gambarKelas = new ImageView(new Image(getClass().getResourceAsStream("../Styles/Image/icon wortel.png")));
+        ImageView gambarKelas = new ImageView(new Image("file:///"+getImageFilePath(kelas.getGambarKelas())));
         gambarKelas.setFitHeight(20);
         gambarKelas.setFitWidth(20);
         
@@ -192,5 +193,11 @@ public class PelatihanController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    private String getImageFilePath(String relativePath) {
+        String projectPath = System.getProperty("user.dir");
+        String absolutePath = projectPath + "/src/".replace("/", File.separator) + relativePath.replace("/", File.separator);
+        return absolutePath;
     }
 }
