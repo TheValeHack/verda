@@ -40,6 +40,10 @@ public class PelatihanController {
     private VBox vboxMateri;
     @FXML
     private VBox langgananBox;
+    @FXML
+    private VBox kelasOnlineBox;
+    @FXML
+    private VBox kelasPraktikBox;
 
     private ArrayList<Pelatihan> pelatihanUser;
     private ArrayList<KelasBelajar> kelasBelajar;
@@ -51,6 +55,8 @@ public class PelatihanController {
     	
     	LocalDate currentDatePlusThreeMonths = LocalDate.now().plusMonths(3);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MMMM yyyy");
+        
+        kelasPraktikBox.setOnMouseClicked(action -> handleKelasPraktik());
         
     	langgananNamaText.setText(currentUser.getNamaPengguna());
     	langgananIdText.setText(Integer.toString(currentUser.getId()));
@@ -165,6 +171,14 @@ public class PelatihanController {
     private void handleOpenKelas(KelasBelajar kelasBelajar) {
     	try {
 			App.showKelasBelajarView(kelasBelajar);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    private void handleKelasPraktik() {
+    	try {
+			App.showKelasPraktikView();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

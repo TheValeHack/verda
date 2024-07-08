@@ -37,11 +37,15 @@ public class App extends Application {
     }
 
     public static void showLoginView() throws Exception {
-        Parent loginView = FXMLLoader.load(App.class.getResource("/Views/Login.fxml"));
-        Scene loginScene = new Scene(loginView);
-        primaryStage.setScene(loginScene);
-        primaryStage.setTitle("Login");
-        primaryStage.show();
+    	if (Session.getUser() == null) {
+    		Parent loginView = FXMLLoader.load(App.class.getResource("/Views/Login.fxml"));
+            Scene loginScene = new Scene(loginView);
+            primaryStage.setScene(loginScene);
+            primaryStage.setTitle("Login");
+            primaryStage.show();
+    	} else {
+    		showBerandaView();
+    	}
     }
 
     public static void showRegisterView() throws Exception {
@@ -134,64 +138,95 @@ public class App extends Application {
         }
     }
     public static void showLowonganDetailView(Lowongan lowongan) throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/LowonganDetail.fxml"));
-        Parent root = loader.load();
-        
-        LowonganDetailController controller = loader.getController();
-        controller.initData(lowongan);
+    	if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+        	FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/LowonganDetail.fxml"));
+            Parent root = loader.load();
+            
+            LowonganDetailController controller = loader.getController();
+            controller.initData(lowongan);
 
-        primaryStage.setTitle("Detail Lowongan");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+            primaryStage.setTitle("Detail Lowongan");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
     public static void showLamaranPekerjaanView(Lowongan lowongan) throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/LamaranPekerjaan.fxml"));
-        Parent root = loader.load();
-        
-        LamaranPekerjaanController controller = loader.getController();
-        controller.initData(lowongan);
-        
+    	if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+        	FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/LamaranPekerjaan.fxml"));
+            Parent root = loader.load();
+            
+            LamaranPekerjaanController controller = loader.getController();
+            controller.initData(lowongan);
+            
 
-        primaryStage.setTitle("Lamaran Pekerjaan");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+            primaryStage.setTitle("Lamaran Pekerjaan");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
     
     public static void showKelasBelajarView(KelasBelajar kelasBelajar) throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/KelasBelajar.fxml"));
-        Parent root = loader.load();
-        
-        KelasBelajarController controller = loader.getController();
-        controller.initData(kelasBelajar);
-        
+    	if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+        	FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/KelasBelajar.fxml"));
+            Parent root = loader.load();
+            
+            KelasBelajarController controller = loader.getController();
+            controller.initData(kelasBelajar);
+            
 
-        primaryStage.setTitle("KelasBelajar");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+            primaryStage.setTitle("KelasBelajar");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
+    }
+    public static void showKelasPraktikView() throws Exception {
+    	 if (Session.getUser() == null) {
+             showLoginView();
+         } else {
+             Parent kelasPraktikView = FXMLLoader.load(App.class.getResource("/Views/KelasPraktik.fxml"));
+             Scene kelasPraktikScene = new Scene(kelasPraktikView);
+             primaryStage.setScene(kelasPraktikScene);
+             primaryStage.setTitle("KelasPraktik");
+             primaryStage.show();
+         }
     }
     public static void showPlayVideoView(KelasBelajar kelasBelajar, KelasVideo kelasVideo) throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayVideo.fxml"));
-        Parent root = loader.load();
-        
-        PlayVideoController controller = loader.getController();
-        controller.initData(kelasBelajar, kelasVideo);
-        
+    	if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+        	FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayVideo.fxml"));
+            Parent root = loader.load();
+            
+            PlayVideoController controller = loader.getController();
+            controller.initData(kelasBelajar, kelasVideo);
+            
 
-        primaryStage.setTitle("KelasBelajar");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+            primaryStage.setTitle("KelasBelajar");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
     public static void showPlayQuizView(KelasBelajar kelasBelajar, KelasQuiz kelasQuiz) throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayQuiz.fxml"));
-        Parent root = loader.load();
-        
-        PlayQuizController controller = loader.getController();
-        controller.initData(kelasBelajar, kelasQuiz);
-        
+    	if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+        	FXMLLoader loader = new FXMLLoader(App.class.getResource("/Views/PlayQuiz.fxml"));
+            Parent root = loader.load();
+            
+            PlayQuizController controller = loader.getController();
+            controller.initData(kelasBelajar, kelasQuiz);
+            
 
-        primaryStage.setTitle("KelasBelajar");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+            primaryStage.setTitle("KelasBelajar");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
 
 
