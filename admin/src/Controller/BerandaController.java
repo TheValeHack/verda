@@ -1,6 +1,8 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import Models.Komunitas;
 import Models.LanggananPengguna;
@@ -17,6 +19,7 @@ import Service.repository.PelatihanRepository;
 import Service.repository.PenggunaRepository;
 import Service.repository.PelatihanPenggunaRepository;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.text.Text;
 
 public class BerandaController {
@@ -43,7 +46,10 @@ public class BerandaController {
 	private Text jumlahLanggananPengguna;
 	
 	@FXML
-	private Text jumlahKomunitasPengguna;
+	private PieChart chartLanggananPengguna;
+	
+	@FXML
+	private PieChart chartPelatihanPengguna;
 	
 	private ArrayList<Pengguna> daftarPengguna;
 	private ArrayList<Lowongan> daftarLowongan;
@@ -70,6 +76,34 @@ public class BerandaController {
 		jumlahPelatihanPengguna.setText(Integer.toString(daftarPelatihanPengguna.size()));
 		jumlahLowonganPengguna.setText(Integer.toString(daftarLowonganPengguna.size()));
 		jumlahLanggananPengguna.setText(Integer.toString(daftarLanggananPengguna.size()));
-		jumlahKomunitasPengguna.setText("1");
+		
+        Map<String, Integer> jenisLanggananCount = new HashMap<>();
+        for (LanggananPengguna langgananPengguna : daftarLanggananPengguna) {
+            String jenisLangganan = langgananPengguna.getLangganan().getJenisLangganan();
+            jenisLanggananCount.put(jenisLangganan, jenisLanggananCount.getOrDefault(jenisLangganan, 0) + 1);
+        }
+
+        for (String jenis : jenisLanggananCount.keySet()) {
+            int jumlah = jenisLanggananCount.get(jenis);
+            PieChart.Data data = new PieChart.Data(jenis + " (" + jumlah + ")", jumlah);
+            chartLanggananPengguna.getData().add(data);
+        }
+        
+        chartLanggananPengguna.setTitle("Langganan Pengguna");
+        
+        
+        Map<String, Integer> jenisPelatihanCount = new HashMap<>();
+        for (PelatihanPengguna pelatihanPengguna : daftarPelatihanPengguna) {
+            String jenisPelatihan = pelatihanPengguna.getInfoPelatihan().getNamaPelatihan();
+            jenisPelatihanCount.put(jenisPelatihan, jenisPelatihanCount.getOrDefault(jenisPelatihan, 0) + 1);
+        }
+
+        for (String jenis : jenisPelatihanCount.keySet()) {
+            int jumlah = jenisPelatihanCount.get(jenis);
+            PieChart.Data data = new PieChart.Data(jenis + " (" + jumlah + ")", jumlah);
+            chartPelatihanPengguna.getData().add(data);
+        }
+        
+        chartPelatihanPengguna.setTitle("Pelatihan Pengguna");
 	}
 }

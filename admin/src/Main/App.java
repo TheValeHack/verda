@@ -1,9 +1,5 @@
 package Main;
-import Models.CobaModel;
-import Models.KelasBelajar;
-import Models.KelasVideo;
-import Models.Lowongan;
-import Models.Pelatihan;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,11 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import util.AuthInterceptor;
 import util.Session;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import Controller.Data;
 
 public class App extends Application {
 

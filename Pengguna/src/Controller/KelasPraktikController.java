@@ -3,60 +3,88 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import util.Session;
 
 import java.io.File;
+import java.util.Optional;
+
+import Main.App;
+import Models.Pengguna;
 
 public class KelasPraktikController {
 
     @FXML
-    private TextField namaLengkap;
+    private TextField namaTf;
 
     @FXML
-    private TextField idField;
+    private ComboBox<Integer> faseCb;
 
     @FXML
-    private ComboBox<Integer> faseComboBox;
+    private ComboBox<String> tumbuhanCb;
 
     @FXML
-    private ComboBox<String> tumbuhanComboBox;
+    private ComboBox<String> uploadCb;
 
     @FXML
-    private Button uploadButton;
-
-    @FXML
-    private Button submitButton;
+    private Button kirimButton;
 
     @FXML
     public void initialize() {
-        faseComboBox.getItems().addAll(1, 2, 3, 4, 5);
-        tumbuhanComboBox.getItems().addAll("Wortel", "Tomat", "Cabai");
+        faseCb.getItems().addAll(1, 2, 3, 4, 5);
+        tumbuhanCb.getItems().addAll("Wortel", "Tomat", "Cabai");
 
-        uploadButton.setOnAction(event -> {
+        uploadCb.setOnMouseClicked(event -> {
             FileChooser fileChooser = new FileChooser();
             File file = fileChooser.showOpenDialog(new Stage());
             if (file != null) {
-                uploadButton.setText(file.getName());
+            	uploadCb.setValue(file.getName());
             }
         });
 
-        submitButton.setOnAction(event -> handleSubmit());
+        kirimButton.setOnMouseClicked(event -> handleSubmit());
+    }
+    
+    @FXML
+    private void handleBackButtonClick(MouseEvent event) throws Exception {
+        App.showPelatihanView();
     }
 
     private void handleSubmit() {
-        String nama = namaLengkap.getText();
-        String id = idField.getText();
-        Integer fase = faseComboBox.getValue();
-        String tumbuhan = tumbuhanComboBox.getValue();
-        String videoFile = uploadButton.getText();
+    	Pengguna currentUser = Session.getUser();
+        String nama = namaTf.getText();
+        int id = currentUser.getId();
+        Integer fase = faseCb.getValue();
+        String tumbuhan = tumbuhanCb.getValue();
+        String videoFile = uploadCb.getValue();
 
-        // Handle form submission logic here
         System.out.println("Nama: " + nama);
         System.out.println("ID: " + id);
         System.out.println("Fase: " + fase);
         System.out.println("Tumbuhan: " + tumbuhan);
         System.out.println("Video: " + videoFile);
+        
+        showAlertAndNavigate("Sukses", "Progress Praktik berhasil dikirim");
+    }
+    
+    private void showAlertAndNavigate(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            try {
+                App.showPelatihanView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

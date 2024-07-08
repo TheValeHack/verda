@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -13,6 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import util.Session;
 
 public class LamaranPekerjaanController {
@@ -26,6 +29,8 @@ public class LamaranPekerjaanController {
     private TextField daerahTf;
 	@FXML
     private ComboBox<String> pendidikanCb;
+	@FXML
+    private ComboBox<String> sertifikatCb;
 	@FXML
     private TextArea tentangTf;
 	@FXML
@@ -43,6 +48,14 @@ public class LamaranPekerjaanController {
     public void initialize() {
         genderCb.getItems().addAll("Laki-laki", "Perempuan");
         pendidikanCb.getItems().addAll("SMA", "D3", "D4/S1");
+        
+        sertifikatCb.setOnMouseClicked(event -> {
+            FileChooser fileChooser = new FileChooser();
+            File file = fileChooser.showOpenDialog(new Stage());
+            if (file != null) {
+            	sertifikatCb.setValue(file.getName());
+            }
+        });
 
         simpanButton.setOnAction(event -> handleSimpanLowongan());
 
