@@ -5,6 +5,8 @@ import Service.Config;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class LanggananPenggunaRepository {
@@ -31,10 +33,20 @@ while (result.next()) {
     }
 
     public static boolean addLangganan(int idPengguna, int idLangganan){
+    	LocalDate currentDate = LocalDate.now();  
+    	LocalDate futureDate;
+        if(idLangganan == 1) {
+        	futureDate = currentDate.plusMonths(3);
+        } else {
+        	futureDate = currentDate.plusYears(1);
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedDate = futureDate.format(formatter);
+    	
         try {
             Connection connection = Config.getConnection();
             var statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO langganan_pengguna (idPengguna, idLangganan) VALUES (" + idPengguna + ", " + idLangganan + ")");
+            statement.executeUpdate("INSERT INTO langganan_pengguna (idPengguna, idLangganan, sampaiDengan) VALUES (" + idPengguna + ", " + idLangganan + ", '" + formattedDate + "')");
             connection.close();
             return true;
         } catch (SQLException e) {
