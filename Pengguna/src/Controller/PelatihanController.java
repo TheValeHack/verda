@@ -57,6 +57,7 @@ public class PelatihanController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MMMM yyyy");
         
         kelasPraktikBox.setOnMouseClicked(action -> handleKelasPraktik());
+        kelasOnlineBox.setOnMouseClicked(action -> handleKelasOnline());
         
     	langgananNamaText.setText(currentUser.getNamaPengguna());
     	langgananIdText.setText(Integer.toString(currentUser.getId()));
@@ -179,6 +180,14 @@ public class PelatihanController {
     private void handleKelasPraktik() {
     	try {
 			App.showKelasPraktikView();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    private void handleKelasOnline() {
+    	try {
+			App.showKelasOnlineView();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

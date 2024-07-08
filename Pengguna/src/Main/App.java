@@ -196,6 +196,17 @@ public class App extends Application {
              primaryStage.show();
          }
     }
+    public static void showKelasOnlineView() throws Exception {
+   	 if (Session.getUser() == null) {
+            showLoginView();
+        } else {
+            Parent kelasPraktikView = FXMLLoader.load(App.class.getResource("/Views/KelasOnline.fxml"));
+            Scene kelasPraktikScene = new Scene(kelasPraktikView);
+            primaryStage.setScene(kelasPraktikScene);
+            primaryStage.setTitle("KelasPraktik");
+            primaryStage.show();
+        }
+   }
     public static void showPlayVideoView(KelasBelajar kelasBelajar, KelasVideo kelasVideo) throws Exception {
     	if (Session.getUser() == null) {
             showLoginView();
